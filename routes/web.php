@@ -63,4 +63,5 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/', function(){
         return redirect()->route('admin.dashboard');
     });
+    Route::get('/admin/dashboard', 'admin\UserController@Dashboard') ->name('admin.dashboard');
 });

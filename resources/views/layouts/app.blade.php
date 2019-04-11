@@ -18,7 +18,7 @@
     <!-- Custom CSS -->
     <link href="{{ asset('material/css/style.css') }}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="{{ asset('material/css/colors/megna.css') }}" id="theme" rel="stylesheet">
+    <link href="{{ asset('material/css/colors/blue.css') }}" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -392,7 +392,7 @@
                             <li>
                                 <a href="{{ route('admin.dashboard')}}" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Dashboard</span></a>
                             </li>
-                            <li>
+                            {{-- <li>
 								<a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Registration</span></a>
 								<ul aria-expanded="false" class="collapse">
 									<li><a href="{{ route('admin.registration.create')}}">Add Registration</a></li>
@@ -416,7 +416,7 @@
                                         <li><a href="{{ route('admin.patient.listchild')}}">List Patient Child</a></li>
                                         <li><a href="{{ route('admin.patient.listadult')}}">List Patient Adult</a></li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </li>
                             
