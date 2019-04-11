@@ -57,5 +57,10 @@ Route::group(['middleware' => 'superAdmin'], function() {
         'update'  => 'superAdmin.minerba.update',
         'destroy' => 'superAdmin.minerba.destroy'
     ]]);
+});
 
+Route::group(['middleware' => 'admin'], function() {
+    Route::get('/admin/', function(){
+        return redirect()->route('admin.dashboard');
+    });
 });
