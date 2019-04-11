@@ -14,7 +14,7 @@ class CreateShippingsTable extends Migration
     public function up()
     {
         Schema::create('shippings', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('client_id')->unsigned();
             $table->string('tongkang')->nullable();
             $table->string('loading_plan')->nullable();
@@ -23,6 +23,10 @@ class CreateShippingsTable extends Migration
             $table->string('packing_list')->nullable();
 
             $table->timestamps();
+
+            $table->foreign('client_id')
+            ->references('id')->on('clients')
+            ->onDelete('cascade');
         });
     }
 

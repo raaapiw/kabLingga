@@ -14,7 +14,7 @@ class CreateClientsTable extends Migration
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('nama_PT')->nullable();
             $table->string('no_iup')->nullable();
@@ -24,7 +24,9 @@ class CreateClientsTable extends Migration
             
             $table->timestamps();
 
-            
+            $table->foreign('user_id')
+            ->references('id')->on('users')
+            ->onDelete('cascade');
         });
     }
 

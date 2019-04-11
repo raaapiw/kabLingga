@@ -14,12 +14,15 @@ class CreateReportsTable extends Migration
     public function up()
     {
         Schema::create('reports', function (Blueprint $table) {
-            $table->bigIncrements('id'); 
+            $table->increments('id'); 
             $table->integer('shipping_id')->unsigned();
-            $table->string('name')->nullable();
-            $table->string('evidence')->nullable();
-            
+            $table->string('name_report')->nullable();
+            $table->string('field_report')->nullable();
+
             $table->timestamps();
+            $table->foreign('shipping_id')
+            ->references('id')->on('shippings')
+            ->onDelete('cascade');
         });
     }
 
