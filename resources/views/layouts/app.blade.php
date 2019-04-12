@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('material/images/Logo-lingga-big.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('material/images/head-logo.png') }}">
     <title>Monitoring Minba PTSI</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('material/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -353,36 +353,22 @@
                             <li>
                                 <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Admin</span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="{{ route('superAdmin.admin.create') }}">Add Admin</a></li>
-                                    <li><a href="{{ route('superAdmin.admin.list') }}">List Admin</a></li>
+                                    <li><a href="#">Tambah Admin</a></li>
+                                    <li><a href="#">List Admin</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Doctor</span></a>
+                                <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">IUPOP</span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="{{ route('superAdmin.doctor.create') }}">Add Doctor</a></li>
-                                    <li><a href="{{ route('superAdmin.doctor.list') }}">List Doctor</a></li>
+                                    <li><a href="#">Tambah IUPOP</a></li>
+                                    <li><a href="#">List IUPOP</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Midwife</span></a>
+                                <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Bapenda</span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="{{ route('superAdmin.midwife.create') }}">Add Midwife</a></li>
-                                    <li><a href="{{ route('superAdmin.midwife.list') }}">List Midwife</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Health Analyst</span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="{{ route('superAdmin.healthAnalyst.create') }}">Add Health Analyst</a></li>
-                                    <li><a href="{{ route('superAdmin.healthAnalyst.list') }}">List Health Analyst</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Pharmacist</span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="{{ route('superAdmin.pharmacist.create') }}">Add Pharmacist</a></li>
-                                    <li><a href="{{ route('superAdmin.pharmacist.list') }}">List Pharmacist</a></li>
+                                    <li><a href="#">Tambah Bapenda</a></li>
+                                    <li><a href="#">List Bapenda</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -390,17 +376,34 @@
                         <ul id="sidebarnav">
                             <li class="nav-small-cap">Admin</li>
                             <li>
-                                <a href="{{ route('admin.dashboard')}}" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Dashboard</span></a>
+                                <a href="{{ route('admin.dashboard')}}" aria-expanded="false"><i class="fa fa-dashboard"></i><span class="hide-menu">Dashboard</span></a>
                             </li>
-                            {{-- <li>
-								<a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Registration</span></a>
+                            <li>
+								<a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-anchor"></i><span class="hide-menu">Shippings</span></a>
 								<ul aria-expanded="false" class="collapse">
-									<li><a href="{{ route('admin.registration.create')}}">Add Registration</a></li>
-									<li><a href="{{ route('admin.registration.list')}}"> List Registration</a></li>
+									<li><a href="{{route('admin.shipping.form')}}">Tambah Shipping Baru</a></li>
+									<li><a href="{{route('admin.shipping.list')}}"> List Shipping</a></li>
+                                        
+								</ul>
+                            </li>
+                            <li>
+								<a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-file-text-o"></i><span class="hide-menu">Reports</span></a>
+								<ul aria-expanded="false" class="collapse">
+									<li><a href="#">Tambah Report</a></li>
+									<li><a href="#">Tambah Field Report</a></li>
+									<li><a href="#">List Report</a></li>
+                                        
+								</ul>
+                            </li>
+                            <li>
+								<a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-file-image-o"></i><span class="hide-menu">Images</span></a>
+								<ul aria-expanded="false" class="collapse">
+									<li><a href="#">Tambah Gambar</a></li>
+									<li><a href="#">List Gambar</a></li>
                                         
 								</ul>
 							</li>
-                            <li>
+                            {{-- <li>
                                 <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Patient</span></a>
                                 <ul aria-expanded="false" class="collapse">
                                     <li>
@@ -416,29 +419,9 @@
                                         <li><a href="{{ route('admin.patient.listchild')}}">List Patient Child</a></li>
                                         <li><a href="{{ route('admin.patient.listadult')}}">List Patient Adult</a></li>
                                         </ul>
-                                    </li> --}}
+                                    </li> 
                                 </ul>
-                            </li>
-                            
-                            
-                            
-                            <li>
-                                {{--  <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Multi level dd</span></a>  --}}
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="javascript:void(0)">item 1.1</a></li>
-                                    <li><a href="javascript:void(0)">item 1.2</a></li>
-                                    <li>
-                                        <a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a>
-                                        <ul aria-expanded="false" class="collapse">
-                                            <li><a href="javascript:void(0)">item 1.3.1</a></li>
-                                            <li><a href="javascript:void(0)">item 1.3.2</a></li>
-                                            <li><a href="javascript:void(0)">item 1.3.3</a></li>
-                                            <li><a href="javascript:void(0)">item 1.3.4</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">item 1.4</a></li>
-                                </ul>
-                            </li>
+                            </li> --}}                           
                         </ul>
                     @elseif(Sentinel::getUser()->roles()->first()->slug == 'doctor')
                         <ul id="sidebarnav">
@@ -632,7 +615,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer">
-                © 2018 Tekindo.com
+                © 2019 Surveyor Indonesia
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

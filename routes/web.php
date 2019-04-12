@@ -59,9 +59,15 @@ Route::group(['middleware' => 'superAdmin'], function() {
     ]]);
 });
 
+
 Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/', function(){
         return redirect()->route('admin.dashboard');
     });
+    // Shipping 
     Route::get('/admin/dashboard', 'admin\UserController@Dashboard') ->name('admin.dashboard');
+    Route::get('/admin/shipping', 'admin\ShippingController@create') ->name('admin.shipping.form');
+    Route::post('/admin/shipping/store', 'admin\ShippingController@store') ->name('admin.shipping.store');
+    Route::post('/admin/shipping/update{id}', 'admin\ShippingController@update') ->name('admin.dashboard.update');
+    Route::get('/admin/shipping/list', 'admin\ShippingController@list') ->name('admin.shipping.list');
 });
