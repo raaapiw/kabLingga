@@ -68,9 +68,24 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/dashboard', 'admin\UserController@Dashboard') ->name('admin.dashboard');
     Route::get('/admin/shipping', 'admin\ShippingController@create') ->name('admin.shipping.form');
     Route::post('/admin/shipping/store', 'admin\ShippingController@store') ->name('admin.shipping.store');
-    Route::post('/admin/shipping/update{id}', 'admin\ShippingController@update') ->name('admin.dashboard.update');
+    Route::post('/admin/shipping/update{id}', 'admin\ShippingController@update') ->name('admin.shipping.update');
     Route::get('/admin/shipping/list', 'admin\ShippingController@list') ->name('admin.shipping.list');
     Route::get('/admin/shipping/edit/{id}', 'admin\ShippingController@edit') ->name('admin.shipping.edit');
     Route::get('/admin/shipping/delete/{id}', 'admin\ShippingController@delete') ->name('admin.shipping.delete');
     Route::get('/admin/shipping/detail/{id}', 'admin\ShippingController@detail') ->name('admin.shipping.detail');
+
+
+    //Report
+    Route::get('/admin/report/add', 'admin\ReportController@index') ->name('admin.report.add');
+    Route::get('/admin/report/form/{id}', 'admin\ReportController@create') ->name('admin.report.form');
+    Route::post('/admin/report/store', 'admin\ReportController@store') ->name('admin.report.store');
+    Route::post('/admin/report/update{id}', 'admin\ReportController@update') ->name('admin.report.update');
+    Route::get('/admin/report/list', 'admin\ReportController@list') ->name('admin.report.list');
+    Route::get('/admin/report/edit/{id}', 'admin\ReportController@edit') ->name('admin.report.edit');
+    Route::get('/admin/report/delete/{id}', 'admin\ReportController@destroy') ->name('admin.report.destroy');
+
+    //Image
+    Route::get('/admin/image/add', 'admin\ImageController@index') ->name('admin.image.add');
+    
+    
 });

@@ -54,10 +54,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Loading Plan :</label><br>
-                                    <input style="width:100px" type="number" class="form-control" id="waktu" name="loading_plan"> Ton
+                                    <label>Rencana Loading</label><br>
+                                    <input  type="date" class="form-control" id="waktu" name="loading_plan">
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Quantity :</label><br>
-                                    <input style="width:100px" type="number" class="form-control" id="tempat" name="quantity">
+                                    <input style="width:100px" type="number" class="form-control" id="tempat" name="quantity"> Ton
                                 </div>
                             </div>
                             <br>

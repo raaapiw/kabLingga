@@ -389,16 +389,17 @@
                             <li>
 								<a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-file-text-o"></i><span class="hide-menu">Reports</span></a>
 								<ul aria-expanded="false" class="collapse">
-									<li><a href="#">Tambah Report</a></li>
-									<li><a href="#">Tambah Field Report</a></li>
-									<li><a href="#">List Report</a></li>
+									<li><a href="{{route('admin.report.add')}}">Tambah LHV</a></li>
+									{{-- <li><a href="#">Tambah Field Report</a></li> --}}
+									<li><a href="{{route('admin.report.list')}}">List LHV</a></li>
+									{{-- <li><a href="#">List Field Report</a></li> --}}
                                         
 								</ul>
                             </li>
                             <li>
 								<a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-file-image-o"></i><span class="hide-menu">Images</span></a>
 								<ul aria-expanded="false" class="collapse">
-									<li><a href="#">Tambah Gambar</a></li>
+									<li><a href="{{route('admin.image.add')}}">Tambah Gambar</a></li>
 									<li><a href="#">List Gambar</a></li>
                                         
 								</ul>
