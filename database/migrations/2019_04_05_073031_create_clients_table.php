@@ -18,6 +18,7 @@ class CreateClientsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('nama_PT')->nullable();
             $table->string('no_iup')->nullable();
+            $table->string('address')->nullable();
             $table->string('iup_expired')->nullable();
             $table->string('npwp')->nullable();
             $table->string('tdp_nib')->nullable();

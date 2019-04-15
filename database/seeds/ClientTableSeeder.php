@@ -22,6 +22,7 @@ class ClientTableSeeder extends Seeder
                 'iup_expired' => $faker->date($format = 'Y-m-d', $max = 'now'),
                 'npwp' => $faker->address(),
                 'tdp_nib' => $faker->address(),
+                'address' => $faker->address(),
                        
             ]);
         }

@@ -70,4 +70,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::post('/admin/shipping/store', 'admin\ShippingController@store') ->name('admin.shipping.store');
     Route::post('/admin/shipping/update{id}', 'admin\ShippingController@update') ->name('admin.dashboard.update');
     Route::get('/admin/shipping/list', 'admin\ShippingController@list') ->name('admin.shipping.list');
+    Route::get('/admin/shipping/edit/{id}', 'admin\ShippingController@edit') ->name('admin.shipping.edit');
+    Route::get('/admin/shipping/delete/{id}', 'admin\ShippingController@delete') ->name('admin.shipping.delete');
+    Route::get('/admin/shipping/detail/{id}', 'admin\ShippingController@detail') ->name('admin.shipping.detail');
 });
