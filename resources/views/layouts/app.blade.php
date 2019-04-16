@@ -400,7 +400,7 @@
 								<a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-file-image-o"></i><span class="hide-menu">Images</span></a>
 								<ul aria-expanded="false" class="collapse">
 									<li><a href="{{route('admin.image.add')}}">Tambah Gambar</a></li>
-									<li><a href="#">List Gambar</a></li>
+									<li><a href="{{route('admin.image.list')}}">List Gambar</a></li>
                                         
 								</ul>
 							</li>

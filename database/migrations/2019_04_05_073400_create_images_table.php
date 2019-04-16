@@ -18,6 +18,10 @@ class CreateImagesTable extends Migration
             $table->integer('shipping_id')->unsigned();
             $table->string('name')->nullable();
             $table->string('evidence')->nullable();
+            $table->string('pics1')->nullable();
+            $table->string('pics2')->nullable();
+            $table->string('pics3')->nullable();
+            $table->string('pics4')->nullable();
 
             $table->timestamps();
             $table->foreign('shipping_id')

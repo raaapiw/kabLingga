@@ -89,12 +89,14 @@
                                     <th>Rencana Loading</th>
                                     <th>Nama Tongkang</th>
                                     <th>Quantity</th>
+                                    <th>Bukti Bayar Pajak</th>
                                 </thead>
                             </tr>
                             <tr>
                                 <td>{{ $shipping->loading_plan }}</td>
                                 <td>{{ $shipping->tongkang }}</td>
-                                <td>{{ $shipping->quantity }}</td>                     
+                                <td>{{ $shipping->quantity }}</td> 
+                                <td><center><a href="{{ Storage::url($shipping->tax_proof) }}"><span><i class="fa fa-download"></i></span></a></center></td>             
                             </tr>
                         </table>
                     </div>

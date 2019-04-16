@@ -86,6 +86,12 @@ Route::group(['middleware' => 'admin'], function() {
 
     //Image
     Route::get('/admin/image/add', 'admin\ImageController@index') ->name('admin.image.add');
-    
+    Route::get('/admin/image/form/{id}', 'admin\ImageController@create') ->name('admin.image.form');
+    Route::post('/admin/image/store', 'admin\ImageController@store') ->name('admin.image.store');
+    Route::post('/admin/image/update{id}', 'admin\ImageController@update') ->name('admin.image.update');
+    Route::get('/admin/image/list', 'admin\ImageController@list') ->name('admin.image.list');
+    Route::get('/admin/image/edit/{id}', 'admin\ImageController@edit') ->name('admin.report.edit');
+    Route::get('/admin/image/delete/{id}', 'admin\ImageController@destroy') ->name('admin.image.destroy');
+    Route::get('/admin/image/detail/{id}', 'admin\ImageController@detail') ->name('admin.image.detail');
     
 });
