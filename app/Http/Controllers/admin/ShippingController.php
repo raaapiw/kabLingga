@@ -8,6 +8,8 @@ use \Input as Input;
 use Storage;
 use App\Client;
 use App\Shipping;
+use App\Report;
+use App\Image;
 
 class ShippingController extends Controller
 {
@@ -32,8 +34,11 @@ class ShippingController extends Controller
     public function detail($id)
     {
         $shipping = Shipping::find($id);
+        $reports = Report::where('shipping_id','=',$id)->get();
+        $image = Image::where('shipping_id','=',$id)->get();
+        
 
-        return view('pages.admin.shipping.detail', compact('shipping'));
+        return view('pages.admin.shipping.detail', compact('shipping','reports','image'));
     }
 
     public function list(){

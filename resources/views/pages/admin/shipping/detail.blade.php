@@ -27,7 +27,7 @@
                 <ul class="nav nav-tabs profile-tab" role="tablist">
                     <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Detail Shipping</a> </li>
                     <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#family" role="tab">Detail Foto Lapangan</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#contract"role="tab">Detail Laporan</a> </li>
+                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#contract"role="tab">Detail LHV</a> </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="home" role="tabpanel">
@@ -99,6 +99,72 @@
                                 <td><center><a href="{{ Storage::url($shipping->tax_proof) }}"><span><i class="fa fa-download"></i></span></a></center></td>             
                             </tr>
                         </table>
+                    </div>
+                    <div class="tab-pane active" id="family" role="tabpanel">
+                        <div class="row el-element-overlay">
+                            <div class="col-md-12">
+                                <h4 class="card-title">Gallery page</h4>
+                                <h6 class="card-subtitle m-b-20 text-muted">you can make gallery like this</h6></div>
+                            @foreach($image as $row)
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="el-card-item">
+                                        <div class="el-card-avatar el-overlay-1"> <img src="{{ asset('storage/files/Image/'.$row->evidence) }}{{--../assets/images/big/img1.jpg--}}" alt="user" />
+                                            <div class="el-overlay">
+                                                <ul class="el-info">
+                                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="{{ asset('storage/files/Image/'.$row->evidence) }}"><i class="icon-magnifier"></i></a></li>
+                                                    {{-- <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li> --}}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="el-card-content">
+                                            <h3 class="box-title">Project title</h3> <small>subtitle of project</small>
+                                            <br/> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="tab-pane active" id="contract" role="tabpanel">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="myTable" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th><center>Tanggal</center></th>
+                                            <th style="width:50%"><center>Nama IUPOP</center></th>
+                                            <th><center>No IUP</center></th>
+                                            <th><center>Masa Berlaku IUP</center></th>
+                                            <th><center>Rencana Loading</center></th>
+                                            <th><center>Action</center></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($reports as $key=>$row)
+                                            <tr>
+                                                <td><center>{{$key+1}}</center></td>
+                                                <td>{{ $row->created_at }}</td>
+                                                <td>{{ $row->shipping->client->nama_PT }}</td>
+                                                <td>{{ $row->shipping->client->no_iup }}</td>
+                                                <td>{{ $row->shipping->client->iup_expired }}</td>
+                                                <td>{{ $row->loading_plan }}</td>
+                                                <td>
+                                                    <center>
+                                                            <a href="{{route('admin.report.edit', $row->id)}}"><span><i class="fa fa-pencil"></i></span></a>
+                                                            <a href="{{route('admin.report.destroy', $row->id)}}"><span><i class="fa fa-trash-o"></i></span></a>
+                                                            <a href="{{ Storage::url($row->name_report) }}"><span><i class="fa fa-download"></i></span></a>
+                                                            {{-- <a href="{{ route('client.document.destroy', $row->id) }}"><span><i class="mdi mdi-delete"></i></span></a> --}}
+                                                    </center>
+                                                </td>
+                                            </tr>                            
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <a class="btn btn-inverse btn-close" href="{{ url()->previous() }}">Kembali</a>
                 </div>
