@@ -136,10 +136,10 @@ class UserTableSeeder extends Seeder
     
     public function createDefaultBapenda(){
         $credentials = [
-            'username' => 'minerba',
-			'email' => 'minerba@example.com',
+            'username' => 'bapenda',
+			'email' => 'bapenda@example.com',
             'password' => 'qwerty123',
-            'name' => 'Minerba',
+            'name' => 'Bapenda',
             'gender' => 'F',
 		];
 

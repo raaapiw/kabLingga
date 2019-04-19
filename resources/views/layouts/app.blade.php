@@ -424,41 +424,24 @@
                                 </ul>
                             </li> --}}                           
                         </ul>
-                    @elseif(Sentinel::getUser()->roles()->first()->slug == 'doctor')
+                    @elseif(Sentinel::getUser()->roles()->first()->slug == 'bapenda')
                         <ul id="sidebarnav">
-                            <li class="nav-small-cap">DOCTOR</li>
+                            <li class="nav-small-cap">Bapenda</li>
                             <li>
-                                <a href="{{ route('doctor.dashboard')}}" aria-expanded="false"><i class="fa fa-user-md"></i><span class="hide-menu">Dashboard</span></a>
+                                <a href="{{ route('bapenda.dashboard')}}" aria-expanded="false"><i class="fa fa-dashboard"></i><span class="hide-menu">Dashboard</span></a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="#" aria-expanded="false"><i class="fa fa-medkit"></i><span class="hide-menu">Diagnosis</span></a>
                                 <ul aria-expanded="false" class="collapse">
                                     <li><a href="{{ route('doctor.diagnosis.add')}}"> Add Diagnosis by Photo</a></li>
                                     <li><a href="{{ route('doctor.diagnosis.add1')}}"> Add Diagnosis by System</a></li>
                                     <li><a href="{{ route('doctor.diagnosis.list')}}">List Diagnosis</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             
                             {{-- <li>
-                                <a href="{{ route('doctor.patient.list')}}" aria-expanded="false"><i class="fa fa-wheelchair"></i><span class="hide-menu">Patients</span></a>
+                                <a href="{{ route('bapenda.client.list')}}" aria-expanded="false"><i class="fa fa-wheelchair"></i><span class="hide-menu">Patients</span></a>
                             </li> --}}
-                            <li>
-                                {{--  <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Multi level dd</span></a>  --}}
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="javascript:void(0)">item 1.1</a></li>
-                                    <li><a href="javascript:void(0)">item 1.2</a></li>
-                                    <li>
-                                        <a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a>
-                                        <ul aria-expanded="false" class="collapse">
-                                            <li><a href="javascript:void(0)">item 1.3.1</a></li>
-                                            <li><a href="javascript:void(0)">item 1.3.2</a></li>
-                                            <li><a href="javascript:void(0)">item 1.3.3</a></li>
-                                            <li><a href="javascript:void(0)">item 1.3.4</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">item 1.4</a></li>
-                                </ul>
-                            </li>
                         </ul>
                     @elseif(Sentinel::getUser()->roles()->first()->slug == 'midwife')
                     <ul id="sidebarnav">

@@ -23,14 +23,10 @@ class VisitorMiddleware
                 return redirect()->route('superAdmin.dashboard');
             elseif(Sentinel::getUser()->roles()->first()->slug == 'admin')
                 return redirect()->route('admin.dashboard');
-            elseif(Sentinel::getUser()->roles()->first()->slug == 'doctor')
-                return redirect()->route('doctor.dashboard');
-            elseif(Sentinel::getUser()->roles()->first()->slug == 'midwife')
-                return redirect()->route('midwife.dashboard');
-            elseif(Sentinel::getUser()->roles()->first()->slug == 'healthAnalyst')
-                return redirect()->route('healthAnalyst.dashboard');
-            elseif(Sentinel::getUser()->roles()->first()->slug == 'pharmacist')
-                return redirect()->route('pharmacist.dashboard');
+            elseif(Sentinel::getUser()->roles()->first()->slug == 'bapenda')
+                return redirect()->route('bapenda.dashboard');
+            elseif(Sentinel::getUser()->roles()->first()->slug == 'client')
+                return redirect()->route('client.dashboard');
             else
                 return abort(404);
     

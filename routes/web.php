@@ -48,14 +48,14 @@ Route::group(['middleware' => 'superAdmin'], function() {
         'destroy' => 'superAdmin.client.destroy'
     ]]);
 
-    Route::resource('superadmin/minerba', 'superAdmin\MinerbaController', ['names' => [
-        'index'   => 'superAdmin.minerba.list',
-        'show'    => 'superAdmin.minerba.show',
-        'create'  => 'superAdmin.minerba.create',
-        'store'   => 'superAdmin.minerba.store',
-        'edit'    => 'superAdmin.minerba.edit',
-        'update'  => 'superAdmin.minerba.update',
-        'destroy' => 'superAdmin.minerba.destroy'
+    Route::resource('superadmin/bapenda', 'superAdmin\BapendaController', ['names' => [
+        'index'   => 'superAdmin.bapenda.list',
+        'show'    => 'superAdmin.bapenda.show',
+        'create'  => 'superAdmin.bapenda.create',
+        'store'   => 'superAdmin.bapenda.store',
+        'edit'    => 'superAdmin.bapenda.edit',
+        'update'  => 'superAdmin.bapenda.update',
+        'destroy' => 'superAdmin.bapenda.destroy'
     ]]);
 });
 
@@ -94,4 +94,23 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/image/delete/{id}', 'admin\ImageController@destroy') ->name('admin.image.destroy');
     Route::get('/admin/image/detail/{id}', 'admin\ImageController@detail') ->name('admin.image.detail');
     
+});
+
+Route::group(['middleware' => 'bapenda'], function() {
+    Route::get('/bapenda/', function(){
+        return redirect()->route('bapenda.dashboard1');
+    });
+
+    Route::get('/bapenda/dashboard', 'bapenda\UserController@dashboard') ->name('bapenda.dashboard');
+    // Shipping 
+    Route::get('/bapenda/shipping/list', 'bapenda\ShippingController@list') ->name('bapenda.shipping.list');
+    Route::get('/bapenda/shipping/detail/{id}', 'bapenda\ShippingController@detail') ->name('bapenda.shipping.detail');
+
+
+    //Report
+    
+
+    //Image
+    
+
 });
