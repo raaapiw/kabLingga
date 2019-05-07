@@ -106,11 +106,8 @@ Route::group(['middleware' => 'bapenda'], function() {
     Route::get('/bapenda/shipping/list', 'bapenda\ShippingController@list') ->name('bapenda.shipping.list');
     Route::get('/bapenda/shipping/detail/{id}', 'bapenda\ShippingController@detail') ->name('bapenda.shipping.detail');
 
-
-    //Report
-    
-
-    //Image
-    
+    //Client 
+    Route::get('/bapenda/client/list', 'bapenda\ClientController@index')->name('bapenda.client.list');
+    Route::get('/bapenda/client/detail/{id}', 'bapenda\ClientController@detail')->name('bapenda.client.detail');
 
 });

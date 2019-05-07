@@ -38,6 +38,8 @@ class UserController extends Controller
                     return redirect()->route('admin.dashboard');
                 elseif(Sentinel::getUser()->roles()->first()->slug == 'bapenda')
                     return redirect()->route('bapenda.dashboard');
+                elseif(Sentinel::getUser()->roles()->first()->slug == 'supervisor')
+                    return redirect()->route('supervisor.dashboard');
                 else
                     return redirect()->route('client.dashboard');
             }else{

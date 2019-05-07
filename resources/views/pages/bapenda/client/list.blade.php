@@ -31,14 +31,11 @@
                                 <th style="width:50%"><center>Nama Perusahaan Tambang</center></th>
                                 <th><center>No IUP</center></th>
                                 <th><center>Masa Berlaku IUP</center></th>
-                                <th><center>Rencana Loading</center></th>
-                                <th><center>Nama Tongkang</center></th>
-                                <th><center>Quantity</center></th>
                                 <th><center>Action</center></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($shippings as $key=>$row)
+                            @foreach($clients as $key=>$row)
                                 <tr>
                                     <td><center>{{$key+1}}</center></td>
                                     <td>{{ $row->created_at }}</td>

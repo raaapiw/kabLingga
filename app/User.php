@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends \Cartalyst\Sentinel\Users\EloquentUser
 {
     use Notifiable;
 
@@ -60,11 +60,11 @@ class User extends Authenticatable
             else
                 $image = 'material/images/users/p4.png';
         }
-        else if($this->roles()->first()->slug == 'doctor' || $this->roles()->first()->slug == 'midwife' ){
+        else if($this->roles()->first()->slug == 'bapenda' || $this->roles()->first()->slug == 'midwife' ){
             if($this->gender == 'M')
-                $image = 'material/images/users/p1.png';
+                $image = 'material/images/users/lingga.png';
             else
-                $image = 'material/images/users/p2.png';
+                $image = 'material/images/users/lingga.png';
         } else {
             if($this->gender == 'M')
                 $image = 'material/images/users/p5.png';

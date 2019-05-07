@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'bapenda' => \App\Http\Middleware\BapendaMiddleware::class,
         'client' => \App\Http\Middleware\ClientMiddleware::class,
+        'supervisor' => \App\Http\Middleware\SupervisorMiddleware::class,
     ];
 
     /**

@@ -29,7 +29,7 @@
                 <ul class="nav nav-tabs profile-tab" role="tablist">
                     <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Detail Shipping</a> </li>
                     <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#gallery" role="tab">Detail Foto Lapangan</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#report"role="tab">Detail LHV</a> </li>
+                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#report"role="tab">Detail LS-L</a> </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="home" role="tabpanel">
@@ -133,7 +133,7 @@
                     <div class="tab-pane" id="report" role="tabpanel">
                         <div class="card-body">
                             <br>
-                            <h2 class="card-title"><b>Download LHV</b></h2>
+                            <h2 class="card-title"><b>Download LS-L</b></h2>
                             <div class="table-responsive">
                                 <table id="myTable" class="table table-bordered table-striped">
                                     <thead>

@@ -31,7 +31,7 @@
                                 <th><center>No IUP</center></th>
                                 <th><center>Masa Berlaku IUP</center></th>
                                 <th><center>Rencana Loading</center></th>
-                                <th><center>Download LHV</center></th>
+                                <th><center>Download LS-L</center></th>
                             </tr>
                         </thead>
                         <tbody>

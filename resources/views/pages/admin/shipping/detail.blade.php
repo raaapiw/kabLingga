@@ -27,7 +27,7 @@
                 <ul class="nav nav-tabs profile-tab" role="tablist">
                     <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Detail Shipping</a> </li>
                     <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#family" role="tab">Detail Foto Lapangan</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#contract"role="tab">Detail LHV</a> </li>
+                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#contract"role="tab">Detail LS-L</a> </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="home" role="tabpanel">

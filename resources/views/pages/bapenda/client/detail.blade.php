@@ -2,7 +2,6 @@
 
 @section('style')
 <link href="{{ asset('material/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css"/>
-<link href="{{ asset('material/plugins/Magnific-Popup-master/dist/magnific-popup.css')}}" rel="stylesheet">
 @endsection
 
 @section('breadcumb')
@@ -18,30 +17,88 @@
 @endsection
 
 @section('content')
-<div class="row el-element-overlay">
-    <div class="col-md-12">
-        <h4 class="card-title">Gallery page</h4>
-        <h6 class="card-subtitle m-b-20 text-muted">you can make gallery like this</h6></div>
-    @foreach($image as $row)
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1"> <img src="{{ asset('storage/files/Image/'.$row->evidence) }}{{--../assets/images/big/img1.jpg--}}" alt="user" />
-                    <div class="el-overlay">
-                        <ul class="el-info">
-                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="{{ asset('storage/files/Image/'.$row->evidence) }}"><i class="icon-magnifier"></i></a></li>
-                            {{-- <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li> --}}
-                        </ul>
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            <form class="m-t-40">
+                <section>
+                    <h2><b>Info Perusahaan</b></h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="idPatient1">No. IUP :</label>
+                            <input type="text" class="form-control" disabled id="idPatient1" value="{{$client->no_iup}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="phoneNumber1">Nama IUPOP :</label>
+                                <input type="tel" class="form-control" disabled id="phoneNumber1" value="{{$client->nama_PT}}">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="el-card-content">
-                    <h3 class="box-title">Project title</h3> <small>subtitle of project</small>
-                    <br/> 
-                </div>
-            </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="date1">Masa Berlaku IUP :</label>
+                                <input type="text" class="form-control" id="date1" disabled value="{{$client->iup_expired}}"> 
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="address1">Alamat :</label>
+                                <input type="text" class="form-control" disabled id="address1" value="{{$client->address}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="address1">No. NPWP :</label>
+                                <input type="text" class="form-control" disabled id="address1" value="{{$client->npwp}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="address1">TDP/NIB :</label>
+                                <input type="text" class="form-control" disabled id="address1" value="{{$client->tdp_nib}}">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </form>
+            <hr>
+            <h2><b>Daftar Shipping </b></h2>
+            {{--  Table Diagnosis  --}}
+            <table id="myTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Rencana Loading</th>
+                        <th>Nama Tongkang</th>
+                        <th>Quantity</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($shippings as $key=> $row)
+                    <tr>
+                        <td><center>{{$key+1}}</center></td>
+                        <td>{{ $row->loading_plan }}</td>
+                        <td>{{ $row->tongkang }}</td>
+                        <td>{{ $row->quantity }}</td> 
+                        <td>
+                            <center>
+                                <a href="{{route('bapenda.shipping.detail', $row->id)}}"><span><i class="fa fa-search"></i></span></a>
+                                {{-- <a href="{{ route('client.document.destroy', $row->id) }}"><span><i class="mdi mdi-delete"></i></span></a> --}}
+                            </center>
+                        </td>        
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
-    @endforeach
 </div>
 @endsection
 
@@ -49,12 +106,4 @@
 <script src="{{ asset('material/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{ asset('material/plugins/sweetalert/sweetalert.min.js')}}"></script>
 <script src="{{ asset('material/plugins/sweetalert/jquery.sweet-alert.custom.js')}}"></script>
- <!--stickey kit -->
- <script src="{{ asset('material/plugins/sticky-kit-master/dist/sticky-kit.min.js')}}"></script>
- <script src="{{ asset('material/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
- <!-- Magnific popup JavaScript -->
- <script src="{{ asset('material/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js')}}"></script>
- <script src="{{ asset('material/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js')}}"></script>
- <script src="{{ asset('material/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
- <script src="js/waves.js"></script>
 @endsection
