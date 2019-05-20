@@ -443,24 +443,16 @@
                                 <a href="{{ route('bapenda.client.list')}}" aria-expanded="false"><i class="fa fa-vcard"></i><span class="hide-menu">Daftar Perusahaan <br>Tambang</span></a>
                             </li>
                         </ul>
-                    @elseif(Sentinel::getUser()->roles()->first()->slug == 'midwife')
+                    @elseif(Sentinel::getUser()->roles()->first()->slug == 'supervisor')
                     <ul id="sidebarnav">
-                        <li class="nav-small-cap">MIDWIFE</li>
+                        <li class="nav-small-cap">SUPERVISOR</li>
                         <li>
-                            <a href="{{ route('midwife.dashboard')}}" aria-expanded="false"><i class="fa fa-user-md"></i><span class="hide-menu">Dashboard</span></a>
-                        </li>
-                        <li>
-                            <a href="#" aria-expanded="false"><i class="fa fa-medkit"></i><span class="hide-menu">Diagnosis</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{ route('midwife.diagnosis.add')}}"> Add Diagnosis by Photo</a></li>
-                                <li><a href="{{ route('midwife.diagnosis.add1')}}"> Add Diagnosis by System</a></li>
-                                <li><a href="{{ route('midwife.diagnosis.list')}}">List Diagnosis</a></li>
-                            </ul>
+                            <a href="{{ route('supervisor.dashboard')}}" aria-expanded="false"><i class="fa fa-user-md"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
                         
-                        {{-- <li>
-                            <a href="{{ route('midwife.patient.list')}}" aria-expanded="false"><i class="fa fa-wheelchair"></i><span class="hide-menu">Patients</span></a>
-                        </li> --}}
+                        <li>
+                            <a href="{{ route('supervisor.report.list')}}" aria-expanded="false"><i class="fa fa-wheelchair"></i><span class="hide-menu">List Report</span></a>
+                        </li>
                         <li>
                             {{--  <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Multi level dd</span></a>  --}}
                             <ul aria-expanded="false" class="collapse">

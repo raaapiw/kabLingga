@@ -7,10 +7,10 @@
 @section('breadcumb')
 <div class="row page-titles">
     <div class="col-md-5 col-8 align-self-center">
-        <h3 class="text-themecolor m-b-0 m-t-0">List LS-L</h3>
+        <h3 class="text-themecolor m-b-0 m-t-0">List Report</h3>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-            <li class="breadcrumb-item active">List LS-L</li>
+            <li class="breadcrumb-item active">List Report</li>
         </ol>
     </div>
 </div>
@@ -31,13 +31,14 @@
                                 <th><center>No IUP</center></th>
                                 <th><center>Masa Berlaku IUP</center></th>
                                 <th><center>Rencana Loading</center></th>
-                                <th><center>Status LS-L Asli</center></th>
-                                <th><center>Status Approve</center></th>
-                                <th><center>Action</center></th>
+                                <th><center>Nama Tongkang</center></th>
+                                <th><center>Quantity Final</center></th>
+                                <th><center>Approve</center></th>
+                                <th><center>Reject</center></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($reports as $key=>$row)
+                            @foreach($report as $key=>$row)
                                 <tr>
                                     <td><center>{{$key+1}}</center></td>
                                     <td>{{ $row->created_at }}</td>
@@ -45,30 +46,17 @@
                                     <td>{{ $row->shipping->client->no_iup }}</td>
                                     <td>{{ $row->shipping->client->iup_expired }}</td>
                                     <td>{{ $row->shipping->loading_plan }}</td>
+                                    <td>{{ $row->shipping->tongkang }}</td>
+                                    <td>{{ $row->shipping->quantity }}</td>
                                     <td>
-                                        @if (isset($row->name_report))
-                                            <span class="label label-success">Sudah Ada</span>
-                                        @else
-                                            <span class="label label-warning">Belum Ada</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if ($row->state_report == 1)
-                                            <span class="label label-success">Sudah Approve</span>
-                                        @else
-                                            <span class="label label-warning">Belum Approve</span>
-                                        @endif
+                                        <center>
+                                                <a href="{{route('supervisor.report.form', $row->id)}}"><span><i class="fa fa-check"></i></span></a>
+                                                {{-- <a href="{{ route('client.document.destroy', $row->id) }}"><span><i class="mdi mdi-delete"></i></span></a> --}}
+                                        </center>
                                     </td>
                                     <td>
                                         <center>
-                                            @if (isset($row->name_report))
-                                                <a href="{{route('admin.report.form', $row->id)}}"><span><i class="fa fa-pencil"></i></span></a>
-                                                <a href="{{route('admin.report.destroy', $row->id)}}"><span><i class="fa fa-trash-o"></i></span></a>
-                                                <a href="{{ Storage::url($row->name_report) }}"><span><i class="fa fa-download"></i></span></a>
-                                            @else
-                                                <a href="{{route('admin.report.destroy', $row->id)}}"><span><i class="fa fa-trash-o"></i></span></a>
-                                                {{-- <a href="{{ Storage::url($row->name_report) }}"><span><i class="fa fa-download"></i></span></a> --}}
-                                            @endif
+                                                <a href="{{route('supervisor.report.reject', $row->id)}}"><font color="red"><strong>x</strong></font></span></a>
                                                 {{-- <a href="{{ route('client.document.destroy', $row->id) }}"><span><i class="mdi mdi-delete"></i></span></a> --}}
                                         </center>
                                     </td>

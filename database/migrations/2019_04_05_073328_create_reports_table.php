@@ -18,6 +18,10 @@ class CreateReportsTable extends Migration
             $table->integer('shipping_id')->unsigned();
             $table->string('name_report')->nullable();
             $table->string('field_report')->nullable();
+            $table->string('evidence')->nullable();
+            $table->integer('name_spv')->nullable();
+            $table->string('barcode')->nullable();
+            $table->integer('state')->nullable();
 
             $table->timestamps();
             $table->foreign('shipping_id')

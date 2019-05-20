@@ -51,6 +51,14 @@ class UserTableSeeder extends Seeder
                 'slug'        => 'client',
             ]
         );
+
+        Sentinel::getRoleRepository()->createModel()->create
+        (
+			[
+				'name'        => 'Supervisor',
+                'slug'        => 'supervisor',
+            ]
+        );
     }
 
     public function createUser()
@@ -59,8 +67,11 @@ class UserTableSeeder extends Seeder
         $this->createDefaultAdmin();
         $this->createDefaultBapenda();
         $this->createDefaultClient();
+        $this->createDefaultSupervisor();
+        $this->createDefaultSupervisor2();
+        $this->createDefaultSupervisor3();
         
-        $roleArray = array("admin", "client");
+        $roleArray = array("admin", "client", "supervisor");
         foreach(range(0,10) as $index){
             $faker = Faker::create();
             $credentials = [
@@ -145,6 +156,55 @@ class UserTableSeeder extends Seeder
 
         $user = Sentinel::registerAndActivate($credentials);
         $role = Sentinel::findRoleBySlug('bapenda');
+        $user->roles()->attach($role);
+    
+    
+    }
+
+    public function createDefaultSupervisor(){
+        $credentials = [
+            'username' => 'Supervisor',
+			'email' => 'spv@a.co.id',
+            'password' => 'qwerty123',
+            'name' => 'Supervisor',
+            'gender' => 'F',
+		];
+
+        $user = Sentinel::registerAndActivate($credentials);
+        $role = Sentinel::findRoleBySlug('supervisor');
+        $user->roles()->attach($role);
+    
+    
+    }
+
+    public function createDefaultSupervisor2(){
+        $credentials = [
+            'username' => 'Supervisor2',
+			'email' => 'spv@a2.co.id',
+            'password' => 'qwerty123',
+            'name' => 'Supervisor2',
+            'gender' => 'M',
+		];
+
+        $user = Sentinel::registerAndActivate($credentials);
+        $role = Sentinel::findRoleBySlug('supervisor');
+        $user->roles()->attach($role);
+    
+    
+    }
+
+
+    public function createDefaultSupervisor3(){
+        $credentials = [
+            'username' => 'Supervisor3',
+			'email' => 'spv@a3.co.id',
+            'password' => 'qwerty123',
+            'name' => 'Supervisor3',
+            'gender' => 'F',
+		];
+
+        $user = Sentinel::registerAndActivate($credentials);
+        $role = Sentinel::findRoleBySlug('supervisor');
         $user->roles()->attach($role);
     
     

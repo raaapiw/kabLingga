@@ -20,9 +20,10 @@ class ReportController extends Controller
     public function index()
     {
         //
-        $shippings = Shipping::doesnthave('report')->get();
-        // dd($shippings);
-        return view('pages.admin.report.add', compact('shippings'));
+        // $shippings = Shipping::doesnthave('report')->get();
+        $report = Report::where('state_report','=',1)->where('name_report','=',null)->get();
+        // dd($report);
+        return view('pages.admin.report.add', compact('report'));
     }
 
     /**
@@ -33,10 +34,10 @@ class ReportController extends Controller
     public function create($id)
     {
         //
-        $shipping = Shipping::find($id);
+        $report = report::find($id);
         
 
-        return view ('pages.admin.report.form', compact('shipping'));
+        return view ('pages.admin.report.form', compact('report'));
     }
 
     public function list()
@@ -57,7 +58,7 @@ class ReportController extends Controller
         $uploadedFile = $request->file('name_report');
         
         // dd($uploadedFile);
-        $uploadedFileName = $request->client_id . '-' . $uploadedFile->getClientOriginalName();
+        $uploadedFileName = $request->shipping_id;
         
         if (Storage::exists($uploadedFileName)) {
             Storage::delete($uploadedFileName);
@@ -111,8 +112,8 @@ class ReportController extends Controller
         //
         $report = Report::find($id);
 
-        $uploadedFile = $request->file('evidence');
-        $uploadedFileName = $request->client_id . '-' . $uploadedFile->getClientOriginalName();
+        $uploadedFile = $request->file('name_report');
+        $uploadedFileName = $request->shipping_id . '.jpeg';
         if (Storage::exists($uploadedFileName)) {
             Storage::delete($uploadedFileName);
         }
@@ -121,7 +122,8 @@ class ReportController extends Controller
         $data = [
             
             'shipping_id'=> $request->shipping_id,
-            'name_report'=> $path,    
+            'name_report'=> $uploadedFileName,   
+            'state' => 3 
         ];
         // dd($data);
         $report->fill($data)->save();

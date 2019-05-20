@@ -20,9 +20,9 @@
     <div class="col-lg-12">
         <div class="card card-outline-info">
             <div class="card-body">
-                <form action="{{ isset($report) ? route('admin.report.update', $report->id) : route('admin.report.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.report.update', $report->id)}}" method="POST" enctype="multipart/form-data">
                     {{-- <input type="hidden" name="name_report" value="LHV"> --}}
-                    <input type="hidden" name="shipping_id" value="{{$shipping->id}}">
+                    <input type="hidden" name="shipping_id" value="{{$report->shipping->id}}">
                     {{-- <input type="hidden" name="client_id" value="{{$shipping->client->id}}"> --}}
                     <div class="form-body">
                         <h3 class="card-title">Tambah LS-L</h3>
@@ -47,7 +47,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <h2><b>File LS-L</b></h2>
-                                    <input type="file" id="file" name="name_report" class="dropify" required/>
+                                    <input type="file" id="file" name="name_report" class="dropify" accept="image/jpeg" required/>
                                 </div>
                             </div>
                         </div>

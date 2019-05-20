@@ -34,6 +34,9 @@
                                 <th><center>Nama Tongkang</center></th>
                                 <th><center>Quantity Final</center></th>
                                 <th><center>Action</center></th>
+                                <th><center>Approve LS-L</center></th>
+                                <th><center>Print LS-L</center></th>
+                                {{-- <th><center>Status</center></th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -49,12 +52,42 @@
                                     <td>{{ $row->quantity }}</td>
                                     <td>
                                         <center>
-                                                <a href="{{route('admin.shipping.edit', $row->id)}}"><span><i class="fa fa-pencil"></i></span></a>
-                                                <a href="{{route('admin.shipping.delete', $row->id)}}"><span><i class="fa fa-trash-o"></i></span></a>
+                                                <a href="{{route('admin.shipping.edit', $row->id)}}"><span><i class="fa fa-pencil"></i></span></a> <br>
+                                                <a href="{{route('admin.shipping.delete', $row->id)}}"><span><i class="fa fa-trash-o"></i></span></a> <br>
                                                 <a href="{{route('admin.shipping.detail', $row->id)}}"><span><i class="fa fa-search"></i></span></a>
                                                 {{-- <a href="{{ route('client.document.destroy', $row->id) }}"><span><i class="mdi mdi-delete"></i></span></a> --}}
                                         </center>
                                     </td>
+                                    <td>
+                                        <center>
+                                            @if (isset($row->report->state))
+                                            <span class="label label-success">Sudah Dikirim</span>
+                                            {{-- @elseif($row->report->state == 2) --}}
+
+                                            @else
+                                            <a href="{{route('admin.shipping.approve', $row->id)}}"><span><i class="fa fa-check-square-o"></i></span></a>                                                                                
+                                                
+                                            @endif
+
+                                        </center>
+                                    </td>
+                                    <td>
+                                        @if(isset($row->report->state_report))
+                                        <center><a target=__blank href="{{ route('admin.shipping.print', $row->id) }}"><span><i class="fa fa-print"></i></span></a></center>
+                                        @else
+                                        <span class="label label-warning">On Process</span>
+                                        @endif
+                                    </td>
+                                    {{-- <td>
+                                        @if (isset($row->report->state))                                 
+                                            <span class="label label-danger">Belum Minta Approve</span>
+                                        @elseif($row->report->state == 2)
+                                            <span class="label label-success">Sudah Di Approve</span>
+                                        @else   
+                                            <span class="label label-warning">Sudah Dikirim</span>                                                                             
+                                            
+                                        @endif
+                                    </td> --}}
                                 </tr>                            
                             @endforeach
                         </tbody>

@@ -73,7 +73,9 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/shipping/edit/{id}', 'admin\ShippingController@edit') ->name('admin.shipping.edit');
     Route::get('/admin/shipping/delete/{id}', 'admin\ShippingController@delete') ->name('admin.shipping.delete');
     Route::get('/admin/shipping/detail/{id}', 'admin\ShippingController@detail') ->name('admin.shipping.detail');
-
+    Route::get('/admin/shipping/approve/{id}', 'admin\ShippingController@approve') ->name('admin.shipping.approve');
+    Route::post('/admin/shipping/storeApprove', 'admin\ShippingController@storeApprove') ->name('admin.shipping.storeApprove');
+    Route::get('/admin/shipping/print/{id}', 'admin\ShippingController@print')->name('admin.shipping.print');
 
     //Report
     Route::get('/admin/report/add', 'admin\ReportController@index') ->name('admin.report.add');
@@ -110,4 +112,18 @@ Route::group(['middleware' => 'bapenda'], function() {
     Route::get('/bapenda/client/list', 'bapenda\ClientController@index')->name('bapenda.client.list');
     Route::get('/bapenda/client/detail/{id}', 'bapenda\ClientController@detail')->name('bapenda.client.detail');
 
+});
+
+Route::group(['middleware' => 'supervisor'], function() {
+    Route::get('/supervisor/', function(){
+        return redirect()->route('supervisor.dashboard');
+    });
+    Route::get('/supervisor/dashboard', 'supervisor\UserController@dashboard') ->name('supervisor.dashboard');
+    Route::get('/supervisor/report/list', 'supervisor\ReportController@list')->name('supervisor.report.list');
+    Route::get('/supervisor/report/create/{id}', 'supervisor\ReportController@form')->name('supervisor.report.form');
+    Route::get('/supervisor/report/reject/{id}', 'supervisor\ReportController@reject')->name('supervisor.report.reject');
+    Route::post('/supervisor/report/update{id}', 'supervisor\ReportController@update')->name('supervisor.report.update');
+    Route::post('/supervisor/reject{id}', 'supervisor\ReportController@rejectup')->name('supervisor.report.rejectup');
+    
+    Route::get('/qrcode', 'supervisor\ReportController@qrcode');
 });

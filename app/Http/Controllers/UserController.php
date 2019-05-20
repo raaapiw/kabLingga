@@ -7,8 +7,8 @@ use Illuminate\Support\MessageBag;
 use App\Exceptions\User\WrongCredentialException;
 use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Sentinel;
-// use App\User;
-// use App\Notification;
+use App\User;
+use App\Notification;
 use Auth;
 class UserController extends Controller
 {

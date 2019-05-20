@@ -29,16 +29,16 @@
                                 <th><center>Rencana Loading</center></th>
                                 <th style="width:50%"><center>Nama IUPOP</center></th>
                                 <th style="width:50%"><center>No IUP</center></th>
-                                <th><center>Tambah Baru</center></th>
+                                <th><center>Tambah Dokumen Asli</center></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($shippings as $key=>$row)
+                            @foreach($report as $key=>$row)
                                 <tr>
                                     <td><center>{{$key+1}}</center></td>
-                                    <td>{{ $row->loading_plan}}</td>
-                                    <td><center>{{ $row->client->nama_PT }}</center></td>
-                                    <td>{{ $row->client->no_iup }}</td>
+                                    <td>{{ $row->shipping->loading_plan}}</td>
+                                    <td><center>{{ $row->shipping->client->nama_PT }}</center></td>
+                                    <td>{{ $row->shipping->client->no_iup }}</td>
                                     <td><center>
                                             <a href="{{ route('admin.report.form', $row->id)}}"><span><i class="fa fa-send"></i></span></a>
                                         </center>
