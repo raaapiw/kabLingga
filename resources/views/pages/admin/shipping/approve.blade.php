@@ -22,7 +22,7 @@
         <div class="card card-outline-info">
             <div class="card-body">
                 <form action="{{ route('admin.shipping.storeApprove', $shipping->id)}}" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="name_spv" value="5">
+                    {{-- <input type="hidden" name="name_spv" value="5"> --}}
                     <input type="hidden" name="shipping_id" value="{{$shipping->id}}">
                     <div class="form-body">
                         <h3 class="card-title">Cek Kembali Data Shipping</h3>
@@ -98,6 +98,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Pilih Penanggung Jawab Approve</label>
+                                        <select id="id" class="form-control custom-select" name="name_spv">
+                                            <option value="5">Adi Candra</option>
+                                            <option value="6">Volvo</option>
+                                            <option value="7">Saab</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div> 
                         {{-- <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">

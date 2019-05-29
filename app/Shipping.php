@@ -14,7 +14,19 @@ class Shipping extends Model
         'loading_plan',
         'quantity',
         'tax_proof',
-        'packing_list'
+        'no_tax',
+        'tgl_tax',
+        'packing_list',
+        'invoice',
+        'tempat_pemeriksaan',
+        'pelabuhan_tujuan',
+        'pelabuhan_muat',
+        'no_lsl',
+        'no_ko',
+        'tgl_ko',
+        'tgl_pemeriksaan',
+        'jenis_produk'
+
     ];
 
     public function client(){

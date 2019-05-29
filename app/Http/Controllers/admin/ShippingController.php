@@ -51,16 +51,6 @@ class ShippingController extends Controller
     }
 
     public function store(Request $request){
-        // $data=[
-        //     'client_id' => $request->client_id,
-        //     'tongkang'=> $request->tongkang,
-        //     'loading_plan'=> $request->loading_plan,
-        //     'quantity'=> $request->quantity,
-        //     'tax_proof'=> $request->quantity,
-        //     'packing_list'=> $request->packing_list,         
-        // ];
-        
-        // $order->fill($data)->save();
         
         $uploadedFile = $request->file('tax_proof');
         $uploadedFileName = $request->client_id . '-' . $uploadedFile->getClientOriginalName();

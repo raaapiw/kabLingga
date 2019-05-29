@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('style')
+<link href="{{ asset('material/plugins/wizard/steps.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('material/plugins/dropify/dist/css/dropify.min.css')}}">
 @endsection
 @section('breadcumb')
@@ -18,17 +19,17 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <div class="card card-outline-info">
+        <div class="card wizard-content">
             <div class="card-body">
-                <form action="{{ isset($shipping) ? route('admin.shipping.update', $shipping->id) : route('admin.shipping.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ isset($shipping) ? route('admin.shipping.update', $shipping->id) : route('admin.shipping.store')}}" class="tab-wizard wizard-circle" method="POST">
                     {{-- <input type="hidden" name="client_id" value="{{ $clients->id}}"> --}}
-                    <div class="form-body">
-                        <h3 class="card-title">Tambah Shipping Baru</h3>
+                    <h3 class="card-title">1</h3>
+                    <section>
                         <hr>
-                        <div class="row p-t-20">
+                        <div class="row ">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="idPatient1">Nama IUPOP :</label>
+                                    <label for="idPatient1">Nama Penjual :</label>
                                     @if(isset($shipping))
                                     <input type="hidden" name="client_id" value="{{$shipping->client->id}}">
                                     <input type="text" class="form-control" id="input" disabled placeholder="{{$shipping->client->nama_PT}}">
@@ -50,24 +51,32 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Nama Tongkang :</label>
-                                    <input type="text" class="form-control" id="input" name="tongkang" value="{{isset($shipping) ? $shipping->tongkang : ''}}" placeholder="{{isset($shipping) ? $shipping->tongkang : ''}}">
+                                    <label>No. LSL :</label>
+                                    <input type="text" class="form-control" id="waktu" name="no_lsl" value="{{isset($shipping) ? $shipping->no_lsl : ''}}" placeholder="{{isset($shipping) ? $shipping->no_lsl : ''}}">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Rencana Loading</label><br>
-                                    <input  type="date" class="form-control" id="waktu" name="loading_plan" value="{{isset($shipping) ? $shipping->loading_plan : ''}}" placeholder="{{isset($shipping) ? $shipping->loading_plan : ''}}">
+                                    <label>No. KO :</label>
+                                    <input type="text" class="form-control" id="waktu" name="no_ko" value="{{isset($shipping) ? $shipping->no_ko : ''}}" placeholder="{{isset($shipping) ? $shipping->no_ko : ''}}">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Packing List:</label>
-                                <input type="text" class="form-control" id="waktu" name="packing_list" value="{{isset($shipping) ? $shipping->packing_list : ''}}" placeholder="{{isset($shipping) ? $shipping->packing_list : ''}}">
+                                    <label>Tanggal KO :</label>
+                                    <input type="date" class="form-control" id="waktu" name="tgl_ko" value="{{isset($shipping) ? $shipping->tgl_ko : ''}}" placeholder="{{isset($shipping) ? $shipping->tgl_ko : ''}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Jenis Produk :</label>
+                                    <input type="text" class="form-control" id="input" name="jenis_produk" value="{{isset($shipping) ? $shipping->jenis_produk : ''}}" placeholder="{{isset($shipping) ? $shipping->jenis_produk : ''}}">
                                 </div>
                             </div>
                         </div>
@@ -78,12 +87,94 @@
                                     <input style="width:100px" type="number" class="form-control" id="tempat" name="quantity" value="{{isset($shipping) ? $shipping->quantity : ''}}" placeholder="{{isset($shipping) ? $shipping->quantity : ''}}"> Ton
                                 </div>
                             </div>
-                            <br>
-                            {{-- <div class="col-md-6">
+                        </div>
+                        <hr>
+                    </section>
+                    <h3 class="card-title">2</h3>
+                    <section>
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <a href="{{ route('doctor.patient.detail', $registration->patient->id)}}"><span><i class="fa fa-info-circle">Details</i></span></a>
+                                    <label>Nama Tongkang :</label>
+                                    <input type="text" class="form-control" id="input" name="tongkang" value="{{isset($shipping) ? $shipping->tongkang : ''}}" placeholder="{{isset($shipping) ? $shipping->tongkang : ''}}">
                                 </div>
-                            </div> --}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tanggal Loading :</label><br>
+                                    <input  type="date" class="form-control" id="waktu" name="loading_plan" value="{{isset($shipping) ? $shipping->loading_plan : ''}}" placeholder="{{isset($shipping) ? $shipping->loading_plan : ''}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Packing List :</label>
+                                <input type="file" class="form-control" id="waktu" name="packing_list" value="{{isset($shipping) ? $shipping->packing_list : ''}}" placeholder="{{isset($shipping) ? $shipping->packing_list : ''}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Invoice :</label>
+                                    <input type="file" class="form-control" id="waktu" name="invoice" value="{{isset($shipping) ? $shipping->invoice : ''}}" placeholder="{{isset($shipping) ? $shipping->invoice : ''}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tempat Pemeriksaan :</label>
+                                    <input type="text" class="form-control" id="waktu" name="tempat_pemeriksaan" value="{{isset($shipping) ? $shipping->tempat_pemeriksaan : ''}}" placeholder="{{isset($shipping) ? $shipping->tempat_pemeriksaan : ''}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tanggal Pemeriksaan :</label>
+                                    <input type="date" class="form-control" id="waktu" name="tgl_pemeriksaan" value="{{isset($shipping) ? $shipping->tgl_pemeriksaan : ''}}" placeholder="{{isset($shipping) ? $shipping->tgl_pemeriksaan : ''}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Pelabuhan Muat :</label>
+                                    <input type="text" class="form-control" id="waktu" name="pelabuhan_muat" value="{{isset($shipping) ? $shipping->pelabuhan_muat : ''}}" placeholder="{{isset($shipping) ? $shipping->pelabuhan_muat : ''}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Pelabuhan Tujuan :</label>
+                                    <input type="text" class="form-control" id="waktu" name="pelabuhan_tujuan" value="{{isset($shipping) ? $shipping->pelabuhan_tujuan : ''}}" placeholder="{{isset($shipping) ? $shipping->pelabuhan_tujuan : ''}}">
+                                </div>
+                            </div>
+                        </div>
+                        <hr> 
+                    </section>
+                    <h3 class="card-title">3</h3>
+                    <section>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>No. Bukti Bayar Pajak :</label>
+                                <input type="text" class="form-control" id="waktu" name="no_tax" value="{{isset($shipping) ? $shipping->no_tax : ''}}" placeholder="{{isset($shipping) ? $shipping->no_tax : ''}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tanggal Bukti Bayar Pajak :</label>
+                                <input type="date" class="form-control" id="waktu" name="tgl_tax" value="{{isset($shipping) ? $shipping->tgl_tax : ''}}" placeholder="{{isset($shipping) ? $shipping->tgl_tax : ''}}">
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -119,9 +210,9 @@
                             <button type="submit" class="btn btn-success" value="upload"><i class="fa fa-check"></i> Submit</button>
                             <a class="btn btn-inverse btn-close" href="{{ url()->previous() }}">Cancel</a>
                         </div>
-                    </div>
+                    </section>
                 </form>
-            </div>
+            
         </div>
     </div>
 </div>
@@ -129,6 +220,10 @@
 @endsection
 
 @section('script')
+<script src="{{ asset('material/plugins/moment/min/moment.min.js')}}"></script>
+<script src="{{ asset('material/plugins/wizard/jquery.steps.min.js')}}"></script>
+<script src="{{ asset('material/plugins/wizard/jquery.validate.min.js')}}"></script>
+<script src="{{ asset('material/plugins/wizard/steps.js')}}"></script>
 
 <script src="{{ asset('material/plugins/dropify/dist/js/dropify.min.js')}}"></script>
 <script>

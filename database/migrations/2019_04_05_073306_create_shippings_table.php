@@ -20,7 +20,18 @@ class CreateShippingsTable extends Migration
             $table->string('loading_plan')->nullable();
             $table->string('quantity')->nullable();
             $table->string('tax_proof')->nullable();
+            $table->string('no_tax')->nullable();
+            $table->string('tgl_tax')->nullable();
             $table->string('packing_list')->nullable();
+            $table->string('invoice')->nullable();
+            $table->string('tempat_pemeriksaan')->nullable();
+            $table->string('pelabuhan_tujuan')->nullable();
+            $table->string('pelabuhan_muat')->nullable();
+            $table->string('no_lsl')->nullable();
+            $table->string('no_ko')->nullable();
+            $table->string('tgl_ko')->nullable();
+            $table->string('tgl_pemeriksaan')->nullable();
+            $table->string('jenis_produk')->nullable();
 
             $table->timestamps();
 

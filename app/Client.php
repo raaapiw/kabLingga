@@ -12,9 +12,11 @@ class Client extends Model
         'user_id',
         'nama_PT',
         'no_iup',
+        'tgl_iup',
         'iup_expired',
         'npwp',
-        'tdp_nib'
+        'tdp_nib',
+        'tgl_npwp'
     ];
 
     public function user(){
