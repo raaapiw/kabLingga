@@ -9,12 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{-- <meta name="userId" content="{{ Auth::check() ? Auth::user->id : '' }}"> --}}
-    
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('material/images/head-logo.png') }}">
-    <title>Verifikasi Smelter SI</title>
+    <title>Monitoring Minba PTSI</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('material/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     @yield('style')
@@ -22,621 +19,593 @@
     <link href="{{ asset('material/css/style.css') }}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="{{ asset('material/css/colors/blue.css') }}" id="theme" rel="stylesheet">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
-    <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
-
 </head>
-    
-<body class="fix-header fix-sidebar card-no-border">
-    <div id="app">
-        <!-- ============================================================== -->
-        <!-- Preloader - style you can find in spinners.css -->
-        <!-- ============================================================== -->
-        <div class="preloader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-        </div>
-        <!-- ============================================================== -->
-        <!-- Main wrapper - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <div id="main-wrapper">
-            <!-- ============================================================== -->
-            <!-- Topbar header - style you can find in pages.scss -->
-            <!-- ============================================================== -->
-            <header class="topbar">
-                <nav class="navbar top-navbar navbar-expand-md navbar-light">
-                    <!-- ============================================================== -->
-                    <!-- Logo -->
-                    <!-- ============================================================== -->
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="https://www.ptsi.co.id/">
-                            <!-- Logo icon -->
-                            <b>
-                                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                                <!-- Dark Logo icon -->
-                                <img src="{{ asset('material/images/head-logo.png') }}" alt="homepage" class="dark-logo" />
-                                <!-- Light Logo icon -->
-                                <img src="{{ asset('material/images/head-logo.png') }}" alt="homepage" class="light-logo" />
-                            </b>
-                            <!--End Logo icon -->
-                            <!-- Logo text -->
-                            <span>
-                            <!-- dark Logo text -->
-                            <img src="{{ asset('material/images/head-logo.png') }}" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo text -->    
-                            <img src="{{ asset('material/images/logo3.png') }}" class="light-logo" alt="homepage" /></span> </a>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
 
-                    <div class="navbar-collapse">
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon -->
+                        <b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="{{ asset('material/images/logo-icon.png') }}" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo icon -->
+                            <img src="{{ asset('material/images/logo1.png') }}" alt="homepage" class="light-logo" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span>
+                         <!-- dark Logo text -->
+                         <img src="{{ asset('material/images/logo-text.png') }}" alt="homepage" class="dark-logo" />
+                         <!-- Light Logo text -->    
+                         <img src="{{ asset('material/images/logo2.png') }}" class="light-logo" alt="homepage" /></span> </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                        <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                         <!-- ============================================================== -->
-                        <!-- toggle and nav items -->
+                        <!-- Messages -->
                         <!-- ============================================================== -->
-                        <ul class="navbar-nav mr-auto mt-md-0">
-                            <!-- This is  -->
-                            <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
-                            <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-                            <!-- ============================================================== -->
-                            <!-- Messages -->
-                            <!-- ============================================================== -->
-                            {{-- <li class="nav-item dropdown mega-dropdown"> <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-view-grid"></i></a> --}}
-                                {{-- <div class="dropdown-menu scale-up-left">
-                                    <ul class="mega-dropdown-menu row">
-                                        <li class="col-lg-3 col-xlg-2 m-b-30">
-                                            <h4 class="m-b-20">CAROUSEL</h4>
-                                            <!-- CAROUSEL -->
-                                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                                <div class="carousel-inner" role="listbox">
-                                                    <div class="carousel-item active">
-                                                        <div class="container"> <img class="d-block img-fluid" src="{{ asset('material/images/big/img1.jpg') }}" alt="First slide"></div>
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <div class="container"><img class="d-block img-fluid" src="{{ asset('material/images/big/img2.jpg') }}" alt="Second slide"></div>
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <div class="container"><img class="d-block img-fluid" src="{{ asset('material/images/big/img3.jpg') }}" alt="Third slide"></div>
-                                                    </div>
+                        {{-- <li class="nav-item dropdown mega-dropdown"> <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-view-grid"></i></a>
+                            <div class="dropdown-menu scale-up-left">
+                                <ul class="mega-dropdown-menu row">
+                                    <li class="col-lg-3 col-xlg-2 m-b-30">
+                                        <h4 class="m-b-20">CAROUSEL</h4>
+                                        <!-- CAROUSEL -->
+                                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                            <div class="carousel-inner" role="listbox">
+                                                <div class="carousel-item active">
+                                                    <div class="container"> <img class="d-block img-fluid" src="{{ asset('material/images/big/img1.jpg') }}" alt="First slide"></div>
                                                 </div>
-                                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
-                                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
-                                            </div>
-                                            <!-- End CAROUSEL -->
-                                        </li>
-                                        <li class="col-lg-3 m-b-30">
-                                            <h4 class="m-b-20">ACCORDION</h4>
-                                            <!-- Accordian -->
-                                            <div id="accordion" class="nav-accordion" role="tablist" aria-multiselectable="true">
-                                                <div class="card">
-                                                    <div class="card-header" role="tab" id="headingOne">
-                                                        <h5 class="mb-0">
-                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    Collapsible Group Item #1
-                                                    </a>
-                                                </h5> </div>
-                                                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                                        <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high. </div>
-                                                    </div>
+                                                <div class="carousel-item">
+                                                    <div class="container"><img class="d-block img-fluid" src="{{ asset('material/images/big/img2.jpg') }}" alt="Second slide"></div>
                                                 </div>
-                                                <div class="card">
-                                                    <div class="card-header" role="tab" id="headingTwo">
-                                                        <h5 class="mb-0">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    Collapsible Group Item #2
-                                                    </a>
-                                                </h5> </div>
-                                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                                        <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card">
-                                                    <div class="card-header" role="tab" id="headingThree">
-                                                        <h5 class="mb-0">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    Collapsible Group Item #3
-                                                    </a>
-                                                </h5> </div>
-                                                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                        <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. </div>
-                                                    </div>
+                                                <div class="carousel-item">
+                                                    <div class="container"><img class="d-block img-fluid" src="{{ asset('material/images/big/img3.jpg') }}" alt="Third slide"></div>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <li class="col-lg-3  m-b-30">
-                                            <h4 class="m-b-20">CONTACT US</h4>
-                                            <!-- Contact -->
-                                            <form>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" id="exampleInputname1" placeholder="Enter Name"> </div>
-                                                <div class="form-group">
-                                                    <input type="email" class="form-control" placeholder="Enter email"> </div>
-                                                <div class="form-group">
-                                                    <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Message"></textarea>
-                                                </div>
-                                                <button type="submit" class="btn btn-info">Submit</button>
-                                            </form>
-                                        </li>
-                                        <li class="col-lg-3 col-xlg-4 m-b-30">
-                                            <h4 class="m-b-20">List style</h4>
-                                            <!-- List style -->
-                                            <ul class="list-style-none">
-                                                <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> You can give link</a></li>
-                                                <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Give link</a></li>
-                                                <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Another Give link</a></li>
-                                                <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Forth link</a></li>
-                                                <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Another fifth link</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div> --}}
-                            {{-- </li> --}}
-                            <!-- ============================================================== -->
-                            <!-- End Messages -->
-                            <!-- ============================================================== -->
-                        </ul>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                        
-                    <marquee>
-                        <font color="red">
-                            @foreach($announcements as $row)
-                                {{ $row->field }} <font color="white">spasi spasi spasi spasi spasi</font>
-                            @endforeach
-                        </font>
-                    </marquee>
-                        <ul class="navbar-nav my-lg-0">
-                            <!-- ============================================================== -->
-                            <!-- Comment -->
-                            <!-- ============================================================== -->
-                            @if(Sentinel::getUser()->roles()->first()->slug == 'client')
-                            <notification v-bind:unreads="notifications" v-bind:userid="{{ Sentinel::getUser()->id}}"></notification>
-                            @endif
-                            <!-- ============================================================== -->
-                            <!-- End Comment -->
-                            <!-- ============================================================== -->
-                            <!-- ============================================================== -->
-                            <!-- Messages -->
-                            <!-- ============================================================== -->
-                            {{-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-email"></i>
-                                    <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
-                                </a>
-                                <div class="dropdown-menu mailbox dropdown-menu-right scale-up" aria-labelledby="2">
-                                    <ul>
-                                        <li>
-                                            <div class="drop-title">You have 4 new messages</div>
-                                        </li>
-                                        <li>
-                                            <div class="message-center">
-                                                <!-- Message -->
-                                                <a href="#">
-                                                    <div class="user-img"> <img src="{{ asset('material/images/users/1.jpg') }}" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
-                                                    <div class="mail-contnet">
-                                                        <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
+                                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+                                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+                                        </div>
+                                        <!-- End CAROUSEL -->
+                                    </li>
+                                    <li class="col-lg-3 m-b-30">
+                                        <h4 class="m-b-20">ACCORDION</h4>
+                                        <!-- Accordian -->
+                                        <div id="accordion" class="nav-accordion" role="tablist" aria-multiselectable="true">
+                                            <div class="card">
+                                                <div class="card-header" role="tab" id="headingOne">
+                                                    <h5 class="mb-0">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                  Collapsible Group Item #1
                                                 </a>
-                                                <!-- Message -->
-                                                <a href="#">
-                                                    <div class="user-img"> <img src="{{ asset('material/images/users/2.jpg') }}" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
-                                                    <div class="mail-contnet">
-                                                        <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </div>
-                                                </a>
-                                                <!-- Message -->
-                                                <a href="#">
-                                                    <div class="user-img"> <img src="{{ asset('material/images/users/3.jpg') }}" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
-                                                    <div class="mail-contnet">
-                                                        <h5>Arijit Sinh</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span> </div>
-                                                </a>
-                                                <!-- Message -->
-                                                <a href="#">
-                                                    <div class="user-img"> <img src="{{ asset('material/images/users/4.jpg') }}" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
-                                                    <div class="mail-contnet">
-                                                        <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-center" href="javascript:void(0);"> <strong>See all e-Mails</strong> <i class="fa fa-angle-right"></i> </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li> --}}
-                            <!-- ============================================================== -->
-                            <!-- End Messages -->
-                            <!-- ============================================================== -->
-                            
-                            <!-- ============================================================== -->
-                            <!-- Profile -->
-                            <!-- ============================================================== -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('material/images/admin.png') }}" alt="user" class="profile-pic" /></a>
-                                <div class="dropdown-menu dropdown-menu-right scale-up">
-                                    <ul class="dropdown-user">
-                                        <li>
-                                            <div class="dw-user-box">
-                                                <div class="u-img"><img src="{{ asset('material/images/admin.png') }}" alt="user"></div>
-                                                <div class="u-text">
-                                                    <h4>Username : {{ Sentinel::getUser()->username }}</h4>
-                                                    <p class="text-muted">{{ Sentinel::getUser()->name }}</p>
-                                                    {{-- <a href="" class="btn btn-rounded btn-danger btn-sm">View Profile</a> --}}
+                                              </h5> </div>
+                                                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high. </div>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <li role="separator" class="divider"></li>
-                                        <li>
-                                            <a href="javascript:void(0);" onclick="$(this).find('form').submit();"><i class="fa fa-power-off"></i> Logout
-                                                <form action="{{ route('postLogout') }}" method="POST">
-                                                </form>
+                                            <div class="card">
+                                                <div class="card-header" role="tab" id="headingTwo">
+                                                    <h5 class="mb-0">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                  Collapsible Group Item #2
+                                                </a>
+                                              </h5> </div>
+                                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header" role="tab" id="headingThree">
+                                                    <h5 class="mb-0">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                  Collapsible Group Item #3
+                                                </a>
+                                              </h5> </div>
+                                                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-lg-3  m-b-30">
+                                        <h4 class="m-b-20">CONTACT US</h4>
+                                        <!-- Contact -->
+                                        <form>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="exampleInputname1" placeholder="Enter Name"> </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Enter email"> </div>
+                                            <div class="form-group">
+                                                <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Message"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-info">Submit</button>
+                                        </form>
+                                    </li>
+                                    <li class="col-lg-3 col-xlg-4 m-b-30">
+                                        <h4 class="m-b-20">List style</h4>
+                                        <!-- List style -->
+                                        <ul class="list-style-none">
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> You can give link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Give link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Another Give link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Forth link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Another fifth link</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> --}}
+                        <!-- ============================================================== -->
+                        <!-- End Messages -->
+                        <!-- ============================================================== -->
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Comment -->
+                        <!-- ============================================================== -->
+                        {{-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right mailbox scale-up">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Notifications</div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Luanch Admin</h5> <span class="mail-desc">Just see the my new admin!</span> <span class="time">9:30 AM</span> </div>
                                             </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                           
-                            <!-- ============================================================== -->
-                            <!-- Language -->
-                            <!-- ============================================================== -->
-                           
-                        </ul>
-                    </div>
-                </nav>
-            </header>
-            <!-- ============================================================== -->
-            <!-- End Topbar header -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Left Sidebar - style you can find in sidebar.scss  -->
-            <!-- ============================================================== -->
-            <aside class="left-sidebar">
-                <!-- Sidebar scroll-->
-                <div class="scroll-sidebar">
-                    <!-- User profile -->
-                    {{-- <div class="user-profile" style="background: url({{ asset('material/images/background/user-info.jpg') }}) no-repeat;">
-                        <!-- User profile image -->
-                        <div class="profile-img"> <img src="{{ asset('material/images/admin.png') }}" alt="user" /> </div>
-                        <!-- User profile text-->
-                        <div class="profile-text"> <a href="#" role="button" aria-haspopup="true" aria-expanded="true">{{ Sentinel::getUser()->name }}<span class="caret"></span></a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="btn btn-success btn-circle"><i class="ti-calendar"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Event today</h5> <span class="mail-desc">Just a reminder that you have event</span> <span class="time">9:10 AM</span> </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="btn btn-info btn-circle"><i class="ti-settings"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span> </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="btn btn-primary btn-circle"><i class="ti-user"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> --}}
+                        <!-- ============================================================== -->
+                        <!-- End Comment -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Messages -->
+                        <!-- ============================================================== -->
+                        {{-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-email"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu mailbox dropdown-menu-right scale-up" aria-labelledby="2">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">You have 4 new messages</div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="user-img"> <img src="{{ asset('material/images/users/1.jpg') }}" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="user-img"> <img src="{{ asset('material/images/users/2.jpg') }}" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="user-img"> <img src="{{ asset('material/images/users/3.jpg') }}" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Arijit Sinh</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span> </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="user-img"> <img src="{{ asset('material/images/users/4.jpg') }}" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center" href="javascript:void(0);"> <strong>See all e-Mails</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> --}}
+                        <!-- ============================================================== -->
+                        <!-- End Messages -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Profile -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset(Sentinel::getUser()->image) }}" alt="user" class="profile-pic" /></a>
+                            <div class="dropdown-menu dropdown-menu-right scale-up">
+                                <ul class="dropdown-user">
+                                    <li>
+                                        <div class="dw-user-box">
+                                            <div class="u-img"><img src="{{ asset(Sentinel::getUser()->image) }}" alt="user"></div>
+                                            <div class="u-text">
+                                                <h4>{{ Sentinel::getUser()->name }}</h4>
+                                                {{-- <p class="text-muted">varun@gmail.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm" >View Profile</a></div> --}}
+                                        </div>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    {{-- <li><a href="#"><i class="ti-user"></i> My Profile</a></li> --}}
+                                    {{-- <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li> --}}
+                                    {{-- <li><a href="#"><i class="ti-email"></i> Inbox</a></li> --}}
+                                    {{-- <li role="separator" class="divider"></li> --}}
+                                    {{-- <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li> --}}
+                                    {{-- <li role="separator" class="divider"></li> --}}
+                                    <li>
+                                        <a href="javascript:void(0);" onclick="$(this).find('form').submit();"><i class="fa fa-power-off"></i> Logout
+                                            <form action="{{ route('postLogout') }}" method="POST">
+                                            </form>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- Language -->
+                        <!-- ============================================================== -->
+                        {{-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-us"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right scale-up"> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-id"></i> Indonesia</a></div>
+                        </li> --}}
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- User profile -->
+                <div class="user-profile" style="background: url({{ asset('material/images/background/user-info.jpg') }}) no-repeat;">
+                    <!-- User profile image -->
+                    <div class="profile-img"> <img src="{{ asset(Sentinel::getUser()->image) }}" alt="user" /> </div>
+                    <!-- User profile text-->
+                    <div class="profile-text"> <a href="#" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">{{ Sentinel::getUser()->name }}<span class="caret"></span></a>
+                        <div class="dropdown-menu animated flipInY">
+                            {{-- <a href="#" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
+                            <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
+                            <a href="#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
+                            <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a> --}}
+                            <div class="dropdown-divider"></div> <a href="login.html" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
-                    </div> --}}
-                    <!-- End User profile text-->
-                    <!-- Sidebar navigation-->
-                    <nav class="sidebar-nav">
-                        @if(Sentinel::getUser()->roles()->first()->slug == 'superAdmin')
+                    </div>
+                </div>
+                <!-- End User profile text-->
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    @if(Sentinel::getUser()->roles()->first()->slug == 'superAdmin')
                         <ul id="sidebarnav">
                             <li class="nav-small-cap">SUPERADMIN</li>
                             <li>
-                                <a href="{{ route('superAdmin.dashboard') }}" aria-expanded="false"><i class="fa fa-dashboard"></i><span class="hide-menu">Dashboard</span></a>
+                                <a href="{{ route('superAdmin.dashboard') }}" aria-expanded="false"><i class="fa fa-home"></i><span class="hide-menu">Dashboard</span></a>
                             </li>
                             <li>
                                 <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Admin</span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="{{ route('superAdmin.admin.create') }}">Add Admin</a></li>
-                                    <li><a href="{{ route('superAdmin.admin.list') }}">List Admin</a></li>
+                                    <li><a href="#">Tambah Admin</a></li>
+                                    <li><a href="#">List Admin</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Client</span></a>
+                                <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">IUPOP</span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="{{ route('superAdmin.client.create') }}">Add User Client</a></li>
-                                    <li><a href="{{ route('superAdmin.client.list') }}">List Client</a></li>
-                                    {{-- <li><a href="{{ route('superAdmin.client.addClient') }}">Add Client</a></li> --}}
+                                    <li><a href="#">Tambah IUPOP</a></li>
+                                    <li><a href="#">List IUPOP</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Minerba</span></a>
+                                <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Bapenda</span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="{{ route('superAdmin.minerba.create') }}">Add User Minerba</a></li>
-                                    <li><a href="{{ route('superAdmin.minerba.list') }}">List Minerba</a></li>
+                                    <li><a href="#">Tambah Bapenda</a></li>
+                                    <li><a href="#">List Bapenda</a></li>
                                 </ul>
                             </li>
                         </ul>
-                        @elseif(Sentinel::getUser()->roles()->first()->slug == 'admin')
-                            <ul id="sidebarnav">
-                                <li class="nav-small-cap">Admin</li>
-                                <li>
-                                    <a href="{{ route('admin.dashboard')}}" aria-expanded="false"><i class="fa fa-dashboard"></i><span class="hide-menu">Dashboard</span></a>
-                                </li>
-                                <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Pemesanan</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('admin.order.addOffer')}}">Tambah Pemesanan</a></li>
-                                        <li><a href="{{ route('admin.order.listOrder')}}"> List Pemesanan</a></li>
-                                        <li><a href="{{ route('admin.order.addContract')}}"> Tambah Kontrak</a></li>
-                                        <li><a href="{{ route('admin.order.listContract')}}">List Kontrak</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Pertemuan</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('admin.meeting.schedule')}}">Buat Pertemuan</a></li>
-                                        <li><a href="{{ route('admin.meeting.uploadBA')}}">Berita Acara</a></li>
-                                        <li><a href="{{ route('admin.meeting.listMeeting')}}">List Pertemuan</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Pekerjaan</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li>
-                                            <a class="has-arrow" href="#" aria-expanded="false">Ver Perencanaan</a>
-                                            <ul aria-expanded="false" class="collapse">
-                                                    <li><a href="{{ route('admin.docper.addName1')}}">Tambah Nama Dokumen</a></li>
-                                                <li><a href="{{ route('admin.work.listDocper')}}">List Ver. Perencanaan</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a class="has-arrow" href="#" aria-expanded="false">Ver Kemajuan Fisik</a>
-                                            <ul aria-expanded="false" class="collapse">
-                                                <li><a href="{{ route('admin.work.curvaS')}}">List Laporan <br> Perencanaan</a></li>
-                                                <li><a href="{{ route('admin.document.listDoc')}}">List Ver. Kemajuan Fisik</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="{{ route('admin.work.approve')}}">Approval Pekerjaan</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Pelaporan</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('admin.draft.listDraft')}}">List Draft Laporan</a></li>
-                                        <li><a href="{{ route('admin.report.addReport')}}">Tambah Laporan</a></li>
-                                        <li><a href="{{ route('admin.report.listReport')}}">List Laporan</a></li>
-                                        <li><a href="{{ route('admin.report.approve')}}">Approval Laporan</a></li>
-                                    </ul>
-                                </li>  
-                                <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Other</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('admin.other.addPics')}}">Tambah Foto Lapangan</a></li>
-                                        <li><a href="{{ route('admin.other.addLetter')}}">Tambah Surat Dirkom</a></li>
-                                        <li><a href="{{ route('admin.other.listPics')}}">List</a></li>
-                                    </ul>
-                                </li>  
-                                <li>
-                                    <a class="" href="{{ route('admin.announcement.list')}}" aria-expanded="false"><i data-icon="Y" class="linea-icon linea-ecommerce"></i><span class="hide-menu">Pengumuman</span></a> 
-                                    
-                                </li>
-                                {{-- <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Patient</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('admin.patient.create')}}">Add Patient</a></li>
-                                        <li><a href="{{ route('admin.patient.list')}}">List Patient</a></li>
+                    @elseif(Sentinel::getUser()->roles()->first()->slug == 'admin')
+                        <ul id="sidebarnav">
+                            <li class="nav-small-cap">Admin</li>
+                            <li>
+                                <a href="{{ route('admin.dashboard')}}" aria-expanded="false"><i class="fa fa-dashboard"></i><span class="hide-menu">Dashboard</span></a>
+                            </li>
+                            <li>
+								<a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-anchor"></i><span class="hide-menu">Shippings</span></a>
+								<ul aria-expanded="false" class="collapse">
+									<li><a href="{{route('admin.shipping.form')}}">Tambah Shipping Baru</a></li>
+									<li><a href="{{route('admin.shipping.list')}}"> List Shipping</a></li>
                                         
-                                    </ul>
-                                </li> --}}
-                                
-                                
-                                
-                                
-                            </ul>
-                            @elseif(Sentinel::getUser()->roles()->first()->slug == 'management')
-                            <ul id="sidebarnav">
-                                <li class="nav-small-cap">Management</li>
-                                <li>
-                                    <a href="{{ route('management.dashboard')}}" aria-expanded="false"><i class="fa fa-dashboard"></i><span class="hide-menu">Dashboard</span></a>
-                                </li>
-                                {{-- <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Pemesanan</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('management.order.list')}}"> List Pemesanan</a></li>
-                                    </ul>
-                                </li> --}}
-                                <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Pertemuan</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('management.meeting.list')}}">List Pertemuan</a></li>
-                                    </ul>
-                                </li>
-                                {{-- <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Pekerjaan</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('management.work.list')}}">List Pekerjaan</a></li>
+								</ul>
+                            </li>
+                            <li>
+								<a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-file-text-o"></i><span class="hide-menu">Reports</span></a>
+								<ul aria-expanded="false" class="collapse">
+									<li><a href="{{route('admin.report.add')}}">Tambah LS-L</a></li>
+									{{-- <li><a href="#">Tambah Field Report</a></li> --}}
+									<li><a href="{{route('admin.report.list')}}">List LS-L</a></li>
+									{{-- <li><a href="#">List Field Report</a></li> --}}
                                         
-                                    </ul>
-                                </li> --}}
-                                {{-- <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Pelaporan</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('management.report.list')}}">List Laporan</a></li>
-                                    </ul>
-                                </li> --}}
-                            </ul>
-                            @elseif(Sentinel::getUser()->roles()->first()->slug == 'marketing')
-                                <ul id="sidebarnav">
-                                    <li class="nav-small-cap">Marketing</li>
+								</ul>
+                            </li>
+                            <li>
+								<a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-file-image-o"></i><span class="hide-menu">Images</span></a>
+								<ul aria-expanded="false" class="collapse">
+									<li><a href="{{route('admin.image.add')}}">Tambah Gambar</a></li>
+									<li><a href="{{route('admin.image.list')}}">List Gambar</a></li>
+                                        
+								</ul>
+							</li>
+                            {{-- <li>
+                                <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Patient</span></a>
+                                <ul aria-expanded="false" class="collapse">
                                     <li>
-                                        <a href="{{ route('admin.dashboard')}}" aria-expanded="false"><i class="fa fa-dashboard"></i><span class="hide-menu">Dashboard</span></a>
-                                    </li>
-                                    <li>
-                                        <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Pemesanan</span></a>
+                                        <a class="has-arrow " href="#" aria-expanded="false"><span class="hide-menu">Add Patient</span></a>
                                         <ul aria-expanded="false" class="collapse">
-                                            <li><a href="{{ route('marketing.order.addOffer')}}">Tambah Pemesanan</a></li>
-                                            <li><a href="{{ route('marketing.order.listOrder')}}"> List Pemesanan</a></li>
-                                            <li><a href="{{ route('marketing.order.addContract')}}"> Tambah Kontrak</a></li>
-                                            <li><a href="{{ route('marketing.order.listContract')}}">List Kontrak</a></li>
+                                        <li><a href="{{ route('admin.patient.createchild')}}">Child</a></li>
+                                        <li><a href="{{ route('admin.patient.createadult')}}">Adult</a></li>
                                         </ul>
                                     </li>
+                                    <li>
+                                        <a class="has-arrow " href="#" aria-expanded="false"><span class="hide-menu">List Patient</span></a>
+                                        <ul aria-expanded="false" class="collapse">
+                                        <li><a href="{{ route('admin.patient.listchild')}}">List Patient Child</a></li>
+                                        <li><a href="{{ route('admin.patient.listadult')}}">List Patient Adult</a></li>
+                                        </ul>
+                                    </li> 
                                 </ul>
-                        @elseif(Sentinel::getUser()->roles()->first()->slug == 'minerba')
+                            </li> --}}                           
+                        </ul>
+                    @elseif(Sentinel::getUser()->roles()->first()->slug == 'bapenda')
                         <ul id="sidebarnav">
-                                <li class="nav-small-cap">Minerba</li>
+                            <li class="nav-small-cap">Bapenda</li>
+                            <li>
+                                <a href="{{ route('bapenda.dashboard')}}" aria-expanded="false"><i class="fa fa-dashboard"></i><span class="hide-menu">Dashboard</span></a>
+                            </li>
+                            {{-- <li>
+                                <a href="#" aria-expanded="false"><i class="fa fa-medkit"></i><span class="hide-menu">Diagnosis</span></a>
+                                <ul aria-expanded="false" class="collapse">
+                                    <li><a href="{{ route('doctor.diagnosis.add')}}"> Add Diagnosis by Photo</a></li>
+                                    <li><a href="{{ route('doctor.diagnosis.add1')}}"> Add Diagnosis by System</a></li>
+                                    <li><a href="{{ route('doctor.diagnosis.list')}}">List Diagnosis</a></li>
+                                </ul>
+                            </li> --}}
+                            
+                            <li>
+                                <a href="{{ route('bapenda.client.list')}}" aria-expanded="false"><i class="fa fa-vcard"></i><span class="hide-menu">Daftar Perusahaan <br>Tambang</span></a>
+                            </li>
+                        </ul>
+                    @elseif(Sentinel::getUser()->roles()->first()->slug == 'supervisor')
+                    <ul id="sidebarnav">
+                        <li class="nav-small-cap">SUPERVISOR</li>
+                        <li>
+                            <a href="{{ route('supervisor.dashboard')}}" aria-expanded="false"><i class="fa fa-user-md"></i><span class="hide-menu">Dashboard</span></a>
+                        </li>
+                        
+                        <li>
+                            <a href="{{ route('supervisor.report.list')}}" aria-expanded="false"><i class="fa fa-wheelchair"></i><span class="hide-menu">List Report</span></a>
+                        </li>
+                        <li>
+                            {{--  <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Multi level dd</span></a>  --}}
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="javascript:void(0)">item 1.1</a></li>
+                                <li><a href="javascript:void(0)">item 1.2</a></li>
                                 <li>
-                                    <a href="{{ route('minerba.dashboard')}}" aria-expanded="false"><i class="fa fa-dashboard"></i><span class="hide-menu">Dashboard</span></a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('minerba.order.listSpk')}}" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">SPK</span></a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('minerba.meeting.listMeeting')}}" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Meeting</span></a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('minerba.report.listReport')}}" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Laporan</span></a>
-                                </li>
-                                {{-- <li>
-                                    <a href="{{ route('patient.registration.create')}}" aria-expanded="false"><i class="fa fa-medkit"></i><span class="hide-menu">Registration</span></a>
+                                    <a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a>
                                     <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('patient.registration.list')}}">History</a></li>
+                                        <li><a href="javascript:void(0)">item 1.3.1</a></li>
+                                        <li><a href="javascript:void(0)">item 1.3.2</a></li>
+                                        <li><a href="javascript:void(0)">item 1.3.3</a></li>
+                                        <li><a href="javascript:void(0)">item 1.3.4</a></li>
                                     </ul>
                                 </li>
-                                --}}
-                                {{-- <li>
-                                    <a href="{{ route('doctor.patient.list')}}" aria-expanded="false"><i class="fa fa-history"></i><span class="hide-menu">History</span></a>
-                                </li> --}}
-                                {{-- <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-medkit"></i><span class="hide-menu">Registration</span></a> 
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('patient.registration.create')}}">Add Registration</a></li>
-                                        <li><a href="{{ route('patient.registration.list')}}">History</a></li> --}}
-                                        {{-- <li><a href="{{ route('patient.registration.list')}}">Diagnosis History</a></li> --}}
-                                        {{-- <li>
-                                            <a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a>
-                                            <ul aria-expanded="false" class="collapse">
-                                                <li><a href="javascript:void(0)">item 1.3.1</a></li>
-                                                <li><a href="javascript:void(0)">item 1.3.2</a></li>
-                                                <li><a href="javascript:void(0)">item 1.3.3</a></li>
-                                                <li><a href="javascript:void(0)">item 1.3.4</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">item 1.4</a></li> --}}
-                                    {{-- </ul>
-                                </li> --}}
-                                {{-- <li>
-                                        <a class="" href="{{route('patient.prescription.confirm')}}" aria-expanded="false"><i class="fa fa-money"></i><span class="hide-menu">Invoice</span></a> 
-                                    
-                                </li> --}}
+                                <li><a href="#">item 1.4</a></li>
                             </ul>
-                        @elseif(Sentinel::getUser()->roles()->first()->slug == 'client')
-                        {{-- ====================Real Doctor============================== --}}
-                            <ul id="sidebarnav">
-                                <li class="nav-small-cap"></li>
-                                <li>
-                                    <a href="{{ route('client.dashboard')}}" aria-expanded="false"><i class="fa fa-dashboard"></i><span class="hide-menu">Dashboard</span></a>
-                                </li>
-                                <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Pemesanan</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('client.order.uploadOffer', Sentinel::getUser()->id)}}">Tambah Order Baru</a></li>
-                                        {{-- <li><a href="{{ route('client.offer.listOrder', Sentinel::getUser()->id)}}">Surat Penawaran</a></li>
-                                        <li><a href="{{ route('client.order.listDp', Sentinel::getUser()->id )}}">Pembayaran DP</a></li>
-                                        <li><a href="{{ route('client.order.listSPK')}}">Upload SPK</a></li> --}}
-                                        <li><a href="{{ route('client.order.listOrder')}}">List Pemesanan</a></li>
-                                        
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Meeting</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('client.meeting.listMeeting')}}">Jadwal Meeting</a></li>
-                                        <li><a href="{{ route('client.meeting.listBA')}}">List Berita Acara</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Pekerjaan</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        {{-- @if ($orders_== 1) --}}
-                                        <li>
-                                            <a class="has-arrow" href="#" aria-expanded="false">Verifikasi<br> Perencanaan</a>
-                                            <ul aria-expanded="false" class="collapse">
-                                                {{-- <li><a href="{{ route('client.docper.listOrder',Sentinel::getUser()->id)}}">Dokumen Perencanaan</a></li> --}}
-                                                <li><a href="{{ route('client.docper.listDoc',Sentinel::getUser()->id)}}">Tambah Dokumen <br>Verifikasi Perencanaan</a></li>
-                                            </ul>
-                                        </li>
-                                        {{-- @else --}}
-                                        <li>
-                                            <a class="has-arrow" href="#" aria-expanded="false">Verifikasi<br> Kemajuan Fisik</a>
-                                            <ul aria-expanded="false" class="collapse">
-                                                <li><a href="{{ route('client.work.addCurva',Sentinel::getUser()->id)}}">Tambah <br>Laporan Perencanaan<font color="red">*</font></a></li>
-                                                {{-- <li><a href="{{ route('client.document.doc',Sentinel::getUser()->id)}}">Dokumen Kemajuan<br>Fisik</a></li> --}}
-                                                
-                                                <li><a href="{{ route('client.document.listDoc',Sentinel::getUser()->id)}}">Tambah Dokumen <br> Kemajuan Fisik</a></li>
-                                                <li><a href="{{ route('client.work.listCurvaS',Sentinel::getUser()->id)}}">List Laporan <br> Perencanaan</a></li>
-                                            </ul>
-                                        </li>
-                                        {{-- @endif --}}
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Pelaporan</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="{{ route('client.report.listReport')}}">List Laporan Akhir</a></li>
-                                        {{-- <li><a href="{{ route('client.report.listReceipt')}}">List Receipt</a></li>
-                                        <li><a href="{{ route('client.report.listLetter')}}">List Surat Pengantar</a></li> --}}
-                                        
-                                    </ul>
-                                </li>
-                                
-                                
-                            </ul>
-                        @endif
-                    </nav>
-                    <!-- End Sidebar navigation -->
-                </div>
-                <!-- End Sidebar scroll-->
-                <!-- Bottom points-->
-              
-                <!-- End Bottom points-->
-            </aside>
+                        </li>
+                    </ul>
+                    @elseif(Sentinel::getUser()->roles()->first()->slug == 'healthAnalyst')
+                        <ul id="sidebarnav">
+                            <li class="nav-small-cap">HEALTH ANALYST</li>
+                            <li>
+                                <a href="{{ route('healthAnalyst.dashboard')}}" aria-expanded="false"><i class="fa fa-home"></i><span class="hide-menu">Dashboard</span></a>
+                            </li>
+                            <li>
+                                <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-bar-chart-o"></i><span class="hide-menu">Result Lab</span></a>
+                                <ul aria-expanded="false" class="collapse">
+                                    @php ($onPatientList = 0)
+                                    <li><a href="{{ route('healthAnalyst.resultLab.create')}}">Add Result Lab</a></li>
+                                    <li><a href="{{ route('healthAnalyst.resultLab.list',$onPatientList)}}">List Result Lab</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                @php ($onPatientList = 1)
+                                <a  href="{{ route('healthAnalyst.resultLab.list',$onPatientList)}}"><i class="fa fa-address-book-o"></i>Patients</a>
+                                {{-- <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Patient</span></a>
+                                <ul aria-expanded="false" class="collapse">                                    
+                                    @php ($onPatientList = 1)
+                                    <li><a href="{{ route('healthAnalyst.resultLab.list',$onPatientList)}}">List Patients</a></li>
+                                </ul> --}}
+                            </li>
+                            
+                            
+                            <li>
+                                {{--  <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Multi level dd</span></a>  --}}
+                                <ul aria-expanded="false" class="collapse">
+                                    <li><a href="javascript:void(0)">item 1.1</a></li>
+                                    <li><a href="javascript:void(0)">item 1.2</a></li>
+                                    <li>
+                                        <a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a>
+                                        <ul aria-expanded="false" class="collapse">
+                                            <li><a href="javascript:void(0)">item 1.3.1</a></li>
+                                            <li><a href="javascript:void(0)">item 1.3.2</a></li>
+                                            <li><a href="javascript:void(0)">item 1.3.3</a></li>
+                                            <li><a href="javascript:void(0)">item 1.3.4</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">item 1.4</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    @else
+                        <ul id="sidebarnav">
+                            <li class="nav-small-cap">PHARMACIST</li>
+                            <li>
+                                <a href="{{route('pharmacist.dashboard')}}" aria-expanded="false"><i class="fa fa-home"></i><span class="hide-menu">Dashboard</span></a>
+                            </li>
+                            <li>
+                                <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-heartbeat"></i><span class="hide-menu">Diagnosis</span></a>
+                                <ul aria-expanded="false" class="collapse">
+                                    <li><a href="{{route('pharmacist.diagnosis.update')}}">Update Diagnosis</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-th"></i><span class="hide-menu">Prescription</span></a>
+                                <ul aria-expanded="false" class="collapse">
+                                    <li><a href="{{route('pharmacist.prescription.confirm')}}">Confirm Prescription</a></li>
+                                    <li><a href="{{route('pharmacist.prescription.list')}}">Prescription List</a></li>
+                                </ul>
+                                {{-- <a href="{{route('pharmacist.receipt.list')}}" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Prescription</span></a> --}}
+                            </li>
+                            <li>
+                                <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Medicine</span></a>
+                                <ul aria-expanded="false" class="collapse">
+                                    <li><a href="{{route('pharmacist.medicine.add')}}">Add Medicine</a></li>
+                                    <li><a href="{{ route('pharmacist.medicine.list')}}">List Medicine</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    @endif
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+            <!-- Bottom points-->
+            {{-- <div class="sidebar-footer">
+                <!-- item-->
+                <a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+                <!-- item-->
+                <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+                <!-- item-->
+                <a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+            </div> --}}
+            <!-- End Bottom points-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
             <!-- ============================================================== -->
-            <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+            <!-- Container fluid  -->
             <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Page wrapper  -->
-            <!-- ============================================================== -->
-            <div class="page-wrapper">
+            <div class="container-fluid">
                 <!-- ============================================================== -->
-                <!-- Container fluid  -->
+                <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-                <div class="container-fluid">
-                    <!-- ============================================================== -->
-                    <!-- Bread crumb and right sidebar toggle -->
-                    <!-- ============================================================== -->
-                    @yield('breadcumb')
-                    <!-- ============================================================== -->
-                    <!-- End Bread crumb and right sidebar toggle -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- Start Page Content -->
-                    <!-- ============================================================== -->
-                    @yield('content')
-                    <!-- ============================================================== -->
-                    <!-- End PAge Content -->
-                    <!-- ============================================================== -->
-                </div>
+                @yield('breadcumb')
                 <!-- ============================================================== -->
-                <!-- End Container fluid  -->
+                <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- footer -->
+                <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <footer class="footer">
-                    © 2018 Surveyor Indonesia
-                </footer>
+                @yield('content')
                 <!-- ============================================================== -->
-                <!-- End footer -->
+                <!-- End PAge Content -->
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer">
+                © 2019 Surveyor Indonesia
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
             <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Wrapper -->
+        <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
-    <!-- All Jquery -->
+    <!-- End Wrapper -->
     <!-- ============================================================== -->
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src="{{ asset('material/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
