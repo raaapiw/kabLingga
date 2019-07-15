@@ -73,9 +73,9 @@
                                     </td>
                                     <td>
                                         @if(isset($row->report->state_report))
-                                        <center><a target=__blank href="{{ route('admin.shipping.print', $row->id) }}"><span><i class="fa fa-print"></i></span></a></center>
+                                            <center><a target=__blank href="{{ route('admin.shipping.print', $row->id) }}"><span><i class="fa fa-print"></i></span></a></center>
                                         @else
-                                        <span class="label label-warning">On Process</span>
+                                            <span class="label label-warning">On Process</span>
                                         @endif
                                     </td>
                                     {{-- <td>

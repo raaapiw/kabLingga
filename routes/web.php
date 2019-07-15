@@ -20,6 +20,8 @@ Route::group(['middleware' => 'visitor'], function() {
 
 });
 
+
+
 Route::group(['middleware' => 'superAdmin'], function() {
     Route::get('/superAdmin/', function(){
         return redirect()->route('superAdmin.dashboard');
@@ -64,7 +66,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/', function(){
         return redirect()->route('admin.dashboard');
     });
-    // Shipping 
+    // Shipping
     Route::get('/admin/dashboard', 'admin\UserController@Dashboard') ->name('admin.dashboard');
     Route::get('/admin/shipping', 'admin\ShippingController@create') ->name('admin.shipping.form');
     Route::post('/admin/shipping/store', 'admin\ShippingController@store') ->name('admin.shipping.store');
@@ -95,20 +97,21 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/image/edit/{id}', 'admin\ImageController@edit') ->name('admin.report.edit');
     Route::get('/admin/image/delete/{id}', 'admin\ImageController@destroy') ->name('admin.image.destroy');
     Route::get('/admin/image/detail/{id}', 'admin\ImageController@detail') ->name('admin.image.detail');
-    
+
+    Route::get('/postlingga', 'admin\ShippingController@post_lingga');
 });
 
 Route::group(['middleware' => 'bapenda'], function() {
     Route::get('/bapenda/', function(){
-        return redirect()->route('bapenda.dashboard1');
+        return redirect()->route('bapenda.dashboard');
     });
 
     Route::get('/bapenda/dashboard', 'bapenda\UserController@dashboard') ->name('bapenda.dashboard');
-    // Shipping 
+    // Shipping
     Route::get('/bapenda/shipping/list', 'bapenda\ShippingController@list') ->name('bapenda.shipping.list');
     Route::get('/bapenda/shipping/detail/{id}', 'bapenda\ShippingController@detail') ->name('bapenda.shipping.detail');
 
-    //Client 
+    //Client
     Route::get('/bapenda/client/list', 'bapenda\ClientController@index')->name('bapenda.client.list');
     Route::get('/bapenda/client/detail/{id}', 'bapenda\ClientController@detail')->name('bapenda.client.detail');
 
@@ -124,6 +127,6 @@ Route::group(['middleware' => 'supervisor'], function() {
     Route::get('/supervisor/report/reject/{id}', 'supervisor\ReportController@reject')->name('supervisor.report.reject');
     Route::post('/supervisor/report/update{id}', 'supervisor\ReportController@update')->name('supervisor.report.update');
     Route::post('/supervisor/reject{id}', 'supervisor\ReportController@rejectup')->name('supervisor.report.rejectup');
-    
+
     Route::get('/qrcode', 'supervisor\ReportController@qrcode');
 });

@@ -64,7 +64,7 @@
                                                 {{-- <a href="{{ route('client.document.destroy', $row->id) }}"><span><i class="mdi mdi-delete"></i></span></a> --}}
                                         </center>
                                     </td>
-                                </tr>                            
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -99,7 +99,7 @@ $(document).ready(function() {
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
 <script src="{{ asset('material/plugins/raphael/raphael-min.js')}}"></script>
 <script src="{{ asset('material/plugins/morrisjs/morris.js')}}"></script>
-<script>
+{{-- <script>
     Morris.Bar({
        element: 'morris-bar-chart',
        data: [{
@@ -129,5 +129,5 @@ $(document).ready(function() {
        gridLineColor: '#eef0f2',
        resize: true
    });
-</script>
+</script> --}}
 @endsection

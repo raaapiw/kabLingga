@@ -2346,7 +2346,7 @@ tag DIV akan digantikan.-->
  <col width=23 style='mso-width-source:userset;mso-width-alt:841;width:17pt'>
  <tr height=20 style='height:15.0pt'>
   <td colspan=17 rowspan=2 height=40 class=xl16418900 width=725
-  style='height:30.0pt;width:546pt'>LAPORAN SURVEYOR LOKAL ( LS-L )</td>
+  style='height:30.0pt;width:546pt'>LAPORAN HASIL VERIFIKASI ( LHV )</td>
  </tr>
  <tr height=20 style='height:15.0pt'>
  </tr>
@@ -2372,7 +2372,7 @@ tag DIV akan digantikan.-->
  <tr height=22 style='mso-height-source:userset;height:16.5pt'>
   <td colspan=17 height=22 class=xl6618900 width=725 style='border-right:1.5pt solid black;
   height:16.5pt;width:546pt'><span lang=SV style='mso-ansi-language:SV'>PERATURAN
-  BUPATI LINGGA<span style='mso-spacerun:yes'>&nbsp; </span>NO. 21, / BULAN /
+  BUPATI LINGGA<span style='mso-spacerun:yes'>&nbsp; </span>NO. 21, / BULAN MARET/
   TAHUN 2019</span></td>
  </tr>
  <tr height=21 style='mso-height-source:userset;height:15.75pt'>
@@ -2383,13 +2383,13 @@ tag DIV akan digantikan.-->
   <td colspan=3 class=xl7318900 width=186 style='border-right:1.0pt solid black;
   border-left:none;width:140pt'><span lang=EN-GB>NO. LS-L<span
   style='mso-spacerun:yes'>&nbsp; </span>:<span style='mso-spacerun:yes'>&nbsp;
-  </span>BBCCDDEEEE</span></td>
+  </span>{{$data->shipping->no_lsl}}</span></td>
   <td colspan=3 class=xl7318900 width=130 style='border-right:1.0pt solid black;
   border-left:none;width:98pt'><span lang=EN-GB>TGL. TERBIT :<span
-  style='mso-spacerun:yes'>&nbsp;</span></span></td>
+  style='mso-spacerun:yes'>&nbsp;</span>a</span></td>
   <td colspan=7 class=xl7518900 width=180 style='border-right:1.5pt solid black;
-  border-left:none;width:136pt'><span lang=EN-GB>TGL.HABIS PAKAI<span
-  style='mso-spacerun:yes'>&nbsp; </span>:</span></td>
+  border-left:none;width:136pt'><span lang=EN-GB>TGL.HABIS PAKAI :<span
+  style='mso-spacerun:yes'>&nbsp; </span>12</span></td>
  </tr>
  <tr height=21 style='mso-height-source:userset;height:15.75pt'>
   <td colspan=17 height=21 class=xl6918900 width=725 style='border-right:1.5pt solid black;
@@ -2401,14 +2401,14 @@ tag DIV akan digantikan.-->
   <td colspan=5 height=20 class=xl7618900 width=273 style='border-right:1.0pt solid black;
   height:15.0pt;width:205pt'><span style='mso-ansi-language:EN-US'><span
   style='mso-spacerun:yes'>&nbsp;</span>PENJUAL (NAMA, ALAMAT)<font
-  class="font518900"><span style='mso-spacerun:yes'>&nbsp; </span>:</font></span></td>
+  class="font518900"><span style='mso-spacerun:yes'>&nbsp; </span>:</font><br> <br><strong>{{$data->shipping->client->nama_PT}}</strong></span></td>
   <td colspan=6 rowspan=2 class=xl8018900 width=297 style='border-right:1.0pt solid black;
   border-bottom:1.0pt solid black;width:224pt'><span style='mso-ansi-language:
   EN-US'>NO. KONFIRMASI ORDER<span style='mso-spacerun:yes'>&nbsp; </span>:<font
-  class="font718900"> </font><font class="font518900">BBCCDDEEEE</font></span></td>
+  class="font718900"> </font><font class="font518900">{{$data->no_ko}}</font></span></td>
   <td colspan=6 rowspan=2 class=xl7918900 width=155 style='border-right:1.5pt solid black;
   border-bottom:1.0pt solid black;width:117pt'><span style='mso-ansi-language:
-  EN-US'>TGL :</span></td>
+  EN-US'>TGL :</span> asdasda</td>
  </tr>
  <tr height=21 style='height:15.75pt'>
   <td colspan=5 height=21 class=xl8718900 width=273 style='border-right:1.0pt solid black;
@@ -2419,10 +2419,10 @@ tag DIV akan digantikan.-->
   height:15.0pt;width:205pt'>&nbsp;</td>
   <td colspan=6 rowspan=2 class=xl8018900 width=297 style='border-right:1.0pt solid black;
   border-bottom:1.0pt solid black;width:224pt'><span style='mso-ansi-language:
-  EN-US'>TEMPAT PEMERIKSAAN :</span></td>
+  EN-US'>TEMPAT PEMERIKSAAN :</span>asdasdasdas</td>
   <td colspan=6 rowspan=2 class=xl7918900 width=155 style='border-right:1.5pt solid black;
   border-bottom:1.0pt solid black;width:117pt'><span style='mso-ansi-language:
-  EN-US'>TGL :</span></td>
+  EN-US'>TGL :</span>1231231</td>
  </tr>
  <tr height=21 style='height:15.75pt'>
   <td colspan=5 height=21 class=xl9318900 width=273 style='border-right:1.0pt solid black;
@@ -2435,19 +2435,19 @@ tag DIV akan digantikan.-->
   style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></td>
   <td colspan=3 class=xl15318900 width=117 style='border-right:1.0pt solid black;
   border-left:none;width:88pt'><span style='mso-ansi-language:EN-US'>NO<span
-  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>:</span></td>
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>:</span> 1213123</td>
   <td colspan=6 rowspan=2 class=xl7918900 width=297 style='border-right:1.0pt solid black;
   border-bottom:1.0pt solid black;width:224pt'><span style='mso-ansi-language:
   EN-US'>DOKUMEN LAIN<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
-  </span>:<span style='mso-spacerun:yes'>&nbsp;</span></span></td>
+  </span>:<span style='mso-spacerun:yes'>esteban</span></span></td>
   <td colspan=6 rowspan=2 class=xl7918900 width=155 style='border-right:1.5pt solid black;
   border-bottom:1.0pt solid black;width:117pt'><span style='mso-ansi-language:
-  EN-US'>TGL :</span></td>
+  EN-US'>TGL :</span>21312321</td>
  </tr>
  <tr height=21 style='mso-height-source:userset;height:15.75pt'>
   <td colspan=3 height=21 class=xl15318900 width=117 style='border-right:1.0pt solid black;
   height:15.75pt;border-left:none;width:88pt'><span style='mso-ansi-language:
-  EN-US'>TGL :</span></td>
+  EN-US'>TGL :</span>123123123</td>
  </tr>
  <tr height=21 style='mso-height-source:userset;height:15.75pt'>
   <td colspan=2 rowspan=2 height=42 class=xl10718900 width=156
@@ -2455,19 +2455,19 @@ tag DIV akan digantikan.-->
   lang=EN-GB>IZIN USAHA PERTAMBANGAN</span></td>
   <td colspan=3 class=xl10018900 width=117 style='border-right:1.0pt solid black;
   width:88pt'><span lang=EN-GB>NO<span style='mso-spacerun:yes'>&nbsp;&nbsp;
-  </span>:</span></td>
+  </span>:</span>asdasdasd</td>
   <td colspan=3 class=xl7318900 width=179 style='border-right:1.0pt solid black;
   border-left:none;width:135pt'><span lang=EN-GB>PELABUHAN MUAT</span></td>
   <td colspan=9 class=xl7318900 width=273 style='border-right:1.5pt solid black;
-  border-left:none;width:206pt'><span lang=EN-GB>&nbsp;</span></td>
+  border-left:none;width:206pt'><span lang=EN-GB>asdasd</span></td>
  </tr>
  <tr height=21 style='mso-height-source:userset;height:15.75pt'>
   <td colspan=3 height=21 class=xl15318900 width=117 style='border-right:1.0pt solid black;
-  height:15.75pt;width:88pt'><span lang=EN-GB>TGL :</span></td>
+  height:15.75pt;width:88pt'><span lang=EN-GB>TGL : dasdasda</span></td>
   <td colspan=3 class=xl7518900 width=179 style='border-right:1.0pt solid black;
   border-left:none;width:135pt'><span lang=EN-GB>PELABUHAN TUJUAN</span></td>
   <td colspan=9 class=xl7518900 width=273 style='border-right:1.5pt solid black;
-  border-left:none;width:206pt'><span lang=EN-GB>&nbsp;</span></td>
+  border-left:none;width:206pt'><span lang=EN-GB>&nbsp; asdasd</span></td>
  </tr>
  <tr height=20 style='mso-height-source:userset;height:15.0pt'>
   <td colspan=2 rowspan=2 height=41 class=xl10718900 width=156
@@ -2475,19 +2475,19 @@ tag DIV akan digantikan.-->
   height:30.75pt;width:117pt'><span lang=EN-GB>BUKTI SETORAN PAJAK DAERAH</span></td>
   <td colspan=3 class=xl15318900 width=117 style='border-right:1.0pt solid black;
   border-left:none;width:88pt'><span lang=EN-GB>NO<span
-  style='mso-spacerun:yes'>&nbsp; </span>:</span></td>
+  style='mso-spacerun:yes'>&nbsp; </span>: adasd</span></td>
   <td colspan=3 class=xl7518900 width=179 style='border-right:1.0pt solid black;
   border-left:none;width:135pt'><span lang=EN-GB>TGL. PENGAPALAN</span></td>
-  <td colspan=9 class=xl16518900 width=273 style='border-right:1.5pt solid black;
-  border-left:none;width:206pt'><span lang=EN-GB>&nbsp;</span></td>
+  <td colspan=9 class=xl7518900 width=273 style='border-right:1.0pt solid black;
+  border-left:none;width:88pt'><span lang=EN-GB>&nbsp;asdasdas</span></td>
  </tr>
  <tr height=21 style='height:15.75pt'>
   <td colspan=3 height=21 class=xl15318900 width=117 style='border-right:1.0pt solid black;
-  height:15.75pt;border-left:none;width:88pt'><span lang=EN-GB>TGL :</span></td>
+  height:15.75pt;border-left:none;width:88pt'><span lang=EN-GB>TGL : asdasdas</span></td>
   <td colspan=3 class=xl7518900 width=179 style='border-right:1.0pt solid black;
   border-left:none;width:135pt'><span lang=EN-GB>NAMA KAPAL</span></td>
-  <td colspan=9 class=xl7318900 width=273 style='border-right:1.5pt solid black;
-  border-left:none;width:206pt'><span style='mso-ansi-language:EN-US'>&nbsp;</span></td>
+  <td colspan=9 class=xl7518900 width=273 style='border-right:1.5pt solid black;
+  border-left:none;width:206pt'><span style='mso-ansi-language:EN-US'>&nbsp; asdasd</span></td>
  </tr>
  <tr height=21 style='mso-height-source:userset;height:15.75pt'>
   <td colspan=17 height=21 class=xl6918900 width=725 style='border-right:1.5pt solid black;
@@ -2525,10 +2525,9 @@ tag DIV akan digantikan.-->
   <td height=21 class=xl6518900 width=73 style='height:15.75pt;width:55pt'><span
   lang=FI style='mso-ansi-language:FI'>1</span></td>
   <td colspan=5 class=xl12018900 width=264 style='border-right:1.0pt solid black;
-  border-left:none;width:198pt'><span lang=ES-AR style='mso-ansi-language:ES-AR'>PASIR
-  DARAT</span></td>
+  border-left:none;width:198pt'><span lang=ES-AR style='mso-ansi-language:ES-AR'>{{$data->shipping->jenis_produk}}</span></td>
   <td colspan=8 class=xl12218900 width=315 style='border-right:1.0pt solid black;
-  border-left:none;width:238pt'><span lang=ES-AR style='mso-ansi-language:ES-AR'>3,51</span></td>
+  border-left:none;width:238pt'><span lang=ES-AR style='mso-ansi-language:ES-AR'>{{$data->shipping->quantity}}</span></td>
   <td colspan=3 class=xl12218900 width=73 style='border-right:1.5pt solid black;
   border-left:none;width:55pt'><span lang=ES-AR style='mso-ansi-language:ES-AR'>M/TON</span></td>
  </tr>

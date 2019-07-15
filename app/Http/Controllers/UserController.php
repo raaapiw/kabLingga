@@ -13,7 +13,7 @@ use Auth;
 class UserController extends Controller
 {
     //
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +37,7 @@ class UserController extends Controller
                 elseif(Sentinel::getUser()->roles()->first()->slug == 'admin')
                     return redirect()->route('admin.dashboard');
                 elseif(Sentinel::getUser()->roles()->first()->slug == 'bapenda')
-                    return redirect()->route('bapenda.dashboard');
+                    return redirect()->route('bapenda.dashboard1');
                 elseif(Sentinel::getUser()->roles()->first()->slug == 'supervisor')
                     return redirect()->route('supervisor.dashboard');
                 else
@@ -59,7 +59,7 @@ class UserController extends Controller
         return redirect()->route('login');
     }
 
-    public function get() 
+    public function get()
     {
         $user = Sentinel::getUser();
         $notifications = $user->unreadNotifications;
